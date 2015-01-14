@@ -2,12 +2,10 @@
 John Muschelli  
 January 13, 2015  
 
-## Outline of the Talk
 
-* General Neuroimaging / CT Data
-* Problem: Manual Segmentation of Intracerebral Hemorrhage
-* Proposed Solution / Results
-* Future Work
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+</script>
 
 
 
@@ -16,75 +14,17 @@ January 13, 2015
 
 
 
-## CT Scanning
-<div class="notes">
-Images are acquired from an X-ray scanner.  Essentially a an x-ray goes around in a circle or revolves around an objects and passes in x-rays and a detector on the other side of the object to text how many x-rays are recovered.
-</div>
-<div style="width:48%;float:left;">
-![inline fill](figure/CT_diagram2.gif)
-<br>
-<sub><sup><sub><sup>Image from http://www.cyberphysics.co.uk/topics/medical/CTScanner.htm</sup></sub></sup></sub>
-</div>
-<div style="margin-left:48%;">
-![inline fill](figure/Healthy_Brain_labeled.png)
-</div>
-
-
-## Image Representation: voxels (3D pixels)
-<div class="columns-2">
-![inline fill](figure/Zoom_No_ICH.png)
-![inline fill](figure/movie_final.gif)
-</div>
 
 
 
 
 
-## CT scan Characteristics {.flexbox .vcenter}
-<div class="notes">
-- This is an example of a CT scan of a brain with no pathology
-- Note the bone
-An attenuation coefficient characterizes how easily the X-ray beam penetrated that area of the brain.
-</div>
 
-<div class="columns-2">
-![inline fill](figure/Healthy_Brain_labeled.png)
-<sub><sup>http://www.osirix-viewer.com/datasets/</sup></sub>
+## Logic of the Talk
 
-
-* Data are in Hounsfield Units (HU), which are "standardized"
-$$
-HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
-$$
-where $\mu$ is the linear attenuation coefficient and $v$ denotes voxel.
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-</div>
-
-## CT scan Characteristics {.flexbox .vcenter}
-<div class="notes">
-- Here are the intensity ranges for stuff
-</div>
-
-<div class="columns-2">
-![inline fill](figure/Healthy_Brain_labeled.png)
-
-Ranges for Tissues:
-
-* Bone – high intensity (1000 HU)
-* Air – low intensity (-1000 HU)
-* Water - 0 HU
-* Blood 30-80 HU
-* White/Gray Matter ≈ 0 - 100 HU
-</div>
-
+* We have patients with Intracerebral Hemorrhage and CT Data 
+* Problem: Manual Segmentation of Intracerebral Hemorrhage is costly
+* We propose an automated solution using logistic regression
 
 
 ## What is Intracranial hemorrhage?
@@ -101,34 +41,94 @@ Ranges for Tissues:
 
 </div>
 
-
-
-
-
-
-## Demographics of Patients
-<div style="float:right;width:500px">
-![inline fill](figure/Table1.png)
-
-
+## X-ray Computed Tomography (CT) Scans
+<div class="notes">
+Images are acquired from an X-ray scanner.  
+x-ray goes around object and detector the other side of the object determines how many x-rays are recovered 
+- fancy transform
+- Image!
 </div>
-
-<div style="margin-right:500px;">
-Data from the MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) trial.
-
-- Patients with ICH at presentation
-- 112 patients from 112 scans 
+<div style="width:48%;float:left;">
+![inline fill](figure/CT_diagram2.gif)
+<br>
+<sub><sup><sub><sup>Image from http://www.cyberphysics.co.uk/topics/medical/CTScanner.htm</sup></sub></sup></sub>
 </div>
-
-![inline](figure/MISTIE3-LOGO.png)
-
-
-## CT: Intracerebral Hemorrhage {.flexbox .vcenter}
-
-<div class="columns-2">
+<div style="margin-left:48%;">
 ![inline fill](figure/100-318_20070724_0026_CT_3_CT_Head-.png)
 </div>
 
+## Data Used
+<div style="float:right;width:500px">
+
+
+|                 &nbsp;                  |    Overall    |
+|:---------------------------------------:|:-------------:|
+|           **Age (Mean (SD))**           | 60.66 (11.25) |
+|          **Gender = Male (%)**          |   77 (68.8)   |
+|              **Race (%)**               |               |
+|              **Caucasian**              |   60 (53.6)   |
+|          **African American**           |   35 (31.2)   |
+|              **Hispanic**               |   12 (10.7)   |
+|                **Other**                |   5 ( 4.5)    |
+|  **Diagnostic ICH Volume (Mean (SD))**  | 37.74 (20.24) |
+|  **Diagnostic IVH Volume (Mean (SD))**  |  3.23 (6.28)  |
+</div>
+<div style="margin-right:500px;">
+CT scans from MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) trial.
+
+- 112 scans from 112 patients (1 per patient)
+- First scan patient received used
+![inline](figure/MISTIE3-LOGO.png)
+
+</div>
+
+
+
+
+
+## Image Representation: voxels (3D pixels)
+<div class="columns-2">
+![inline fill](figure/Zoom_No_ICH.png)
+![inline fill](figure/movie_final.gif)
+</div>
+
+
+
+
+## CT scan Characteristics
+<div class="notes">
+- This is an example of a CT scan of a brain with no pathology
+- Note the bone
+An attenuation coefficient characterizes how easily the X-ray beam penetrated that area of the brain.
+</div>
+
+<div class="columns-2">
+![inline fill](figure/100-318_20070724_0026_CT_3_CT_Head-.png)
+
+* Data are in Hounsfield Units (HU), which are "standardized"
+$$
+HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
+$$
+where $\mu$ is the linear attenuation coefficient and $v$ denotes voxel.
+</div>
+
+
+## CT scan Characteristics 
+<div class="notes">
+- Here are the HU ranges for stuff
+</div>
+
+<div class="columns-2">
+![inline fill](figure/100-318_20070724_0026_CT_3_CT_Head-.png)
+
+HU Ranges:
+
+* Bone – high intensity (1000 HU)
+* Air – low intensity (-1000 HU)
+* Water - 0 HU
+* Blood 30-80 HU
+* White/Gray Matter ≈ 0 - 100 HU
+</div>
 
 ## Intracerebral Hemorrhage: Segmented
 
@@ -139,6 +139,21 @@ Data from the MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) 
 
 </div>
 
+## Larger ICH Volume ⇒ Worse Outcome
+
+
+
+J. P. Broderick, T. G. Brott, J. E. Duldner, et al. **"Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality."** In: _Stroke_ 24.7 (1993), pp. 987-993.
+
+S. Davis, J. Broderick, M. Hennerici, et al. **"Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage"**. In: _Neurology_ 66.8 (2006), pp. 1175-1181.
+
+L. C. Jordan, J. T. Kleinman and A. E. Hillis. **"Intracerebral hemorrhage volume predicts poor neurologic outcome in children"**. In:
+_Stroke_ 40.5 (2009), pp. 1666-1671.
+
+S. Tuhrim, D. R. Horowitz, M. Sacher, et al. **"Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage"**. In: _Critical care medicine_ 27.3 (1999),
+pp. 617-621.
+
+</div>
 
 ## Problems with Manual Segmenation
 
@@ -146,41 +161,99 @@ Data from the MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) 
 ![inline fill](figure/100-318_20070724_0026_CT_3_CT_Head-ROI.png)
 
 * ICH are manually traced (**gold standard**)
-  * Time-consuming
-  * Within and across-rater variability
-* Can't do for large databases
-  * Important for some processes, such as image registration
+    + Time-consuming (can be over 20 mins per scan), costly
+    + Within and across-rater variability
+* Infeasible for large databases
 </div>
 
 
 
 
 
+# Solution: Primary Intracerebral Hemorrhage Prediction Employing Regression and Features Extracted from CT (PItcHPERFECT)
+## PItcHPERFECT uses Logistic Regression
 
-## **Primary Intracerebral Hemorrhage Prediction Employing Regression and Features Extracted from CT (PItcHPERFECT)** 
-
+Let $Y$ be the binary 0/1 indicator if a voxel $j$is classified as ICH, $1\dots v_{i}$  for person $i$.  
 $$
-\text{logit}\left(Y_{i,j}\right) = \beta_0 + X_{i,j}\beta
+\text{logit}\left(Y_{i, j}\right) = \beta_0 + X_{i, j}\beta
 $$
-for $j$ voxels, $1\dots v_{i}$ for person $i$.  
+where $X_{i,j}$ is a $v_{i}\times p$ matrix of predictors and $\beta \in \mathbb{R}^p$.  
 
-* Creating predictor variables:
-  * Raw intensity
-  * Z-scores in all 3 planes with only brain image (skull stripped)
-  * Indicator if intensity **$\geq 40$** (established threshold) & $\leq 80$ HU
-  * Local moments (mean, sd, skew, kurtosis)
-  * Large smoothers
-* Run a **logistic regression** with these
-* Model built on 10 subjects
+- Note, we do not take into account the spatial dependence of voxels.
+- This model may be fit on a person level (where $i$ is fixed), or across people $i$ varies.
+
+## What are the predictors?
+After some preprocessing and voxel selection, the predictors $X$ are
+
+* Intensity in HU (Raw image)
+* Indicator if intensity **$\geq 40$** & $\leq 80$ HU (thresholded)
+* Z-scores in all 3 planes with only brain image
+* Distance from the center of the brain
+* Local moments (mean, sd, skew, kurtosis) of intensity and thresholded intensity
+* Smoothed image with large Gaussian smoothers ($\sigma \in \{10, 20\}$mm)
 
 
 
+## Estimation of Model
+<div class = "notes">
+- Maybe a figure here instead of text
+</div>
 
-## Example Output: 
- 
-<img src="figure/SS_Image_PrePredict.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
+* Built the Model based on 10 subjects (first 10, not randomly)
+  + Data were stratified sampled based on $Y$ and a fixed percentage (25%) of positive outcomes were included, and cutoffs were optimized on the 10 scans 
 
-## Example Output: Manual Segmentation
+* Split the remaining subjects into $51$ validation scans and $51$ test scans and predicted $Y_{i,j}$.
+
+* We will present results on the $51$ validation scans.
+
+
+## Assessing Performance 
+
+
+For each scan we can calculate the following 2-by-2 table and a corresponding Venn diagram:
+
+<div style="width:45%;float: left;">
+
+
+<table class = 'rmdtable'>
+<tr class = "header"><td></td><td></td><td colspan="2">Manual</td></tr>
+<tr class = "header"><td></td><td></td><td>0</td><td>1</td></tr>
+<tr><td rowspan="2"> PitCH</td><td>0</td><td>TN</td><td style="color:blue">FN</td></tr>
+<tr><td>1</td><td style="color:red">FP</td><td style="color:purple">TP</td></tr>
+</table>
+</div>
+
+<div style="margin-left:48%;">
+<img src="figure/Venn_Diagram_labeled.png" style="width:275px;height:275px;display: block; margin: auto;border:5px solid black"">
+</div>
+
+## Dice Similarity {.build}
+
+<div style="width:48%;float:left;">
+From this table, we can calculate the Dice Similarity Index (DSI):
+$$
+\definecolor{red}{RGB}{255,0,0}
+\definecolor{blue}{RGB}{0,0,255}
+\definecolor{purple}{RGB}{128,0,128}
+\definecolor{blac,}{RGB}{0,0,0}
+\frac{ \color{purple} 2 \times \#  \text{TP} }{ \color{purple}  2 \times \#\text{TP} \color{black} + \color{red} \text{FN} \color{black} + \color{blue} \text{FP}} 
+$$
+</div>
+<div style="margin-left:48%;">
+A DSI of:
+
+- 0 indicates no overlap
+- 1 means perfect agreement  
+
+</div>
+<div style="width:48%;float:left;">
+
+<img src="figure/Fraction_Figure.png" style="width:400px;height:400px;display: block; margin: auto;">
+
+</div>
+
+
+## Test case: Manual Segmentation
  
 <img src="figure/SS_Image_PrePredict_ROI.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
@@ -189,65 +262,50 @@ for $j$ voxels, $1\dots v_{i}$ for person $i$.
  
 <img src="figure/SS_Image_PrePredict_Auto.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-## Prediction Comparison
- 
+## Prediction Comparison: DSI: 0.90
+
+
 <img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 
-## Prediction Result: Population
- 
-<img src="figure/Modeling_Training_AUC_Rigid_sinc_zval2_Final.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
+## <img src="figure/Modeling_Training_Dice_Rigid_zval2_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 
-## Conclusions and Extensions
- 
-* ICH Segmentation has high specificity
-  * Good for Localization
-  * OK for volume estimates
-  * Good enough for adaptive randomization
-
-
-## Thanks
-
-Main Collaborators
-
-<div class="columns-2">
-<center><table>
-<tr>
-<td><img src="Hanley.jpg" style="width:150px; height:100px;" alt="Demog"></td>
-<td><img src="Ciprian.jpg" style="width:100px; height:125px;" alt="Demog"></td>
-</tr>
-</table></center>
+# Thanks
 
 
 
-<center><table>
-<tr>
-<img src="Ullman.jpg" style="width:125px; height:125px;" alt="Demog">
-<img src="Sweeney.jpg" style="width:125px; height:125px;" alt="Demog">
-</tr> 
-</table></center>
+
+## Prediction Comparison: DSI: 0.686
+
+<img src="figure/Prediction_Figure_303.png" style="width:500px;  display: block; margin: auto;">
 
 
-* Groups
 
-<center><table>
-<tr> <td><img src="SMART.png" style="width:200px; height:100px;" alt="Demog"></td> <td> <img src="BIOS.png" style="width:200px; height:100px;" alt="Demog"></td>
-</tr>
-</table></center>
+## Demographics of Patients
+<div style="float:right;width:500px">
 
-* Funding
 
-<center><table>
-<tr> <td>T32AG000247</td><td> NIA </td></tr>
-<tr> <td>RO1EB012547</td><td> NIBIB</td> </tr>
-<tr> <td>R01NS046309, RO1NS060910, RO1NS085211, R01NS046309, U01NS080824 and U01NS062851</td> <td>NINDS</td> </tr>
-<tr><td>RO1MH095836</td> <td> NIMH </td></tr>
-</table></center>
-
+|                 &nbsp;                  |    Overall    |
+|:---------------------------------------:|:-------------:|
+|           **Age (Mean (SD))**           | 60.66 (11.25) |
+|          **Gender = Male (%)**          |   77 (68.8)   |
+|              **Race (%)**               |               |
+|              **Caucasian**              |   60 (53.6)   |
+|          **African American**           |   35 (31.2)   |
+|              **Hispanic**               |   12 (10.7)   |
+|                **Other**                |   5 ( 4.5)    |
+|  **Diagnostic ICH Volume (Mean (SD))**  | 37.74 (20.24) |
+|  **Diagnostic IVH Volume (Mean (SD))**  |  3.23 (6.28)  |
 </div>
 
+<div style="margin-right:500px;">
+Data from the MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) trial.
 
+- Patients with ICH at presentation
+- 112 patients from 112 scans 
+</div>
 
+![inline](figure/MISTIE3-LOGO.png)
 
 
