@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automatic Intracerebral Hemorrhage Segmentation of CT Scans</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+  <meta name="date" content="2015-01-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" media="all" href="Oral_Proposal_files/ioslides-13.5.1/fonts/fonts.css">
+
+  <link rel="stylesheet" media="all" href="Oral_Proposal_files/ioslides-13.5.1/theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="Oral_Proposal_files/ioslides-13.5.1/theme/css/phone.css">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Automatic Intracerebral Hemorrhage Segmentation of CT Scans',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+              },
+
+      // Author information
+      presenters: [
+            {
+        name:  'John Muschelli' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="john_orals.css" type="text/css" />
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">January 13, 2015</p>
+          </hgroup>
+  </slide>
+
+<slide class=''><hgroup><h2>Outline of the Talk</h2></hgroup><article  id="outline-of-the-talk">
+
+<ul>
+<li>General Neuroimaging / CT Data</li>
+<li>Problem: Manual Segmentation of Intracerebral Hemorrhage</li>
+<li>Proposed Solution / Results</li>
+<li>Future Work</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>CT Scanning</h2></hgroup><article  id="ct-scanning">
+
+<aside class='note'><section>Images are acquired from an X-ray scanner. Essentially a an x-ray goes around in a circle or revolves around an objects and passes in x-rays and a detector on the other side of the object to text how many x-rays are recovered.</section></aside>
+
+<div style="width:48%;float:left;">
+<img src='figure/CT_diagram2.gif' title=''/> <br> <sub><sup><sub><sup>Image from <a href='http://www.cyberphysics.co.uk/topics/medical/CTScanner.htm' title=''>http://www.cyberphysics.co.uk/topics/medical/CTScanner.htm</a></sup></sub></sup></sub></div>
+
+<div style="margin-left:48%;">
+<img src='figure/Healthy_Brain_labeled.png' title=''/></div>
+
+</article></slide><slide class=''><hgroup><h2>Image Representation: voxels (3D pixels)</h2></hgroup><article  id="image-representation-voxels-3d-pixels">
+
+<div class="columns-2">
+<img src='figure/Zoom_No_ICH.png' title=''/> <img src='figure/movie_final.gif' title=''/></div>
+
+</article></slide><slide class=''><hgroup><h2>CT scan Characteristics</h2></hgroup><article  id="ct-scan-characteristics" class="flexbox vcenter">
+
+<aside class='note'><section><ul>
+<li>This is an example of a CT scan of a brain with no pathology</li>
+<li>Note the bone An attenuation coefficient characterizes how easily the X-ray beam penetrated that area of the brain.</li>
+</ul></section></aside>
+
+<div class="columns-2">
+<p><img src='figure/Healthy_Brain_labeled.png' title=''/> <sub><sup><a href='http://www.osirix-viewer.com/datasets/' title=''>http://www.osirix-viewer.com/datasets/</a></sup></sub></p>
+
+<ul>
+<li>Data are in Hounsfield Units (HU), which are &quot;standardized&quot; \[
+HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
+\] where \(\mu\) is the linear attenuation coefficient and \(v\) denotes voxel. <br> <br> <br> <br> <br> <br> <br> <br></li>
+</ul></div>
+
+</article></slide><slide class=''><hgroup><h2>CT scan Characteristics</h2></hgroup><article  id="ct-scan-characteristics-1" class="flexbox vcenter">
+
+<aside class='note'><section><ul>
+<li>Here are the intensity ranges for stuff</li>
+</ul></section></aside>
+
+<div class="columns-2">
+<img src='figure/Healthy_Brain_labeled.png' title=''/>
+
+<p>Ranges for Tissues:</p>
+
+<ul>
+<li>Bone – high intensity (1000 HU)</li>
+<li>Air – low intensity (-1000 HU)</li>
+<li>Water - 0 HU</li>
+<li>Blood 30-80 HU</li>
+<li>White/Gray Matter ≈ 0 - 100 HU</li>
+</ul></div>
+
+</article></slide><slide class=''><hgroup><h2>What is Intracranial hemorrhage?</h2></hgroup><article  id="what-is-intracranial-hemorrhage">
+
+<div class="columns-2">
+<ul>
+<li>When a blood vessel ruptures into
+
+<ul>
+<li>tissue: intracerebral hemorrhage (ICH)</li>
+<li>ventricles: intraventricular hemorrhage (IVH)</li>
+</ul></li>
+<li>≈ 13% of strokes</li>
+</ul>
+
+<img src='figure/stroke_hem_web.jpg' title=''/>
+
+<p><sub><sup><a href='http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm' title=''>http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm</a></sup></sub></p></div>
+
+</article></slide><slide class=''><hgroup><h2>Demographics of Patients</h2></hgroup><article  id="demographics-of-patients">
+
+<div style="float:right;width:500px">
+<img src='figure/Table1.png' title=''/></div>
+
+<div style="margin-right:500px;">
+<p>Data from the MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) trial.</p>
+
+<ul>
+<li>Patients with ICH at presentation</li>
+<li>112 patients from 112 scans</li>
+</ul></div>
+
+<img src='figure/MISTIE3-LOGO.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>CT: Intracerebral Hemorrhage</h2></hgroup><article  id="ct-intracerebral-hemorrhage" class="flexbox vcenter">
+
+<div class="columns-2">
+<img src='figure/100-318_20070724_0026_CT_3_CT_Head-.png' title=''/></div>
+
+</article></slide><slide class=''><hgroup><h2>Intracerebral Hemorrhage: Segmented</h2></hgroup><article  id="intracerebral-hemorrhage-segmented">
+
+<div class="columns-2">
+<img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI.png' title=''/>
+
+<img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI_binary.png' title=''/></div>
+
+</article></slide><slide class=''><hgroup><h2>Problems with Manual Segmenation</h2></hgroup><article  id="problems-with-manual-segmenation">
+
+<div class="columns-2">
+<img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI.png' title=''/>
+
+<ul>
+<li>ICH are manually traced (<strong>gold standard</strong>)</li>
+<li>Time-consuming</li>
+<li>Within and across-rater variability</li>
+<li>Can&#39;t do for large databases</li>
+<li>Important for some processes, such as image registration</li>
+</ul></div>
+
+</article></slide><slide class=''><hgroup><h2><strong>Primary Intracerebral Hemorrhage Prediction Employing Regression and Features Extracted from CT (PItcHPERFECT)</strong></h2></hgroup><article  id="primary-intracerebral-hemorrhage-prediction-employing-regression-and-features-extracted-from-ct-pitchperfect">
+
+<p>\[
+\text{logit}\left(Y_{i,j}\right) = \beta_0 + X_{i,j}\beta
+\] for \(j\) voxels, \(1\dots v_{i}\) for person \(i\).</p>
+
+<ul>
+<li>Creating predictor variables:</li>
+<li>Raw intensity</li>
+<li>Z-scores in all 3 planes with only brain image (skull stripped)</li>
+<li>Indicator if intensity <strong>\(\geq 40\)</strong> (established threshold) &amp; \(\leq 80\) HU</li>
+<li>Local moments (mean, sd, skew, kurtosis)</li>
+<li>Large smoothers</li>
+<li>Run a <strong>logistic regression</strong> with these</li>
+<li>Model built on 10 subjects</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Example Output:</h2></hgroup><article  id="example-output">
+
+<p><img src="figure/SS_Image_PrePredict.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+</article></slide><slide class=''><hgroup><h2>Example Output: Manual Segmentation</h2></hgroup><article  id="example-output-manual-segmentation">
+
+<p><img src="figure/SS_Image_PrePredict_ROI.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+</article></slide><slide class=''><hgroup><h2>Example Output: Automatic Segmentation</h2></hgroup><article  id="example-output-automatic-segmentation">
+
+<p><img src="figure/SS_Image_PrePredict_Auto.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+</article></slide><slide class=''><hgroup><h2>Prediction Comparison</h2></hgroup><article  id="prediction-comparison">
+
+<p><img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+</article></slide><slide class=''><hgroup><h2>Prediction Result: Population</h2></hgroup><article  id="prediction-result-population">
+
+<p><img src="figure/Modeling_Training_AUC_Rigid_sinc_zval2_Final.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+</article></slide><slide class=''><hgroup><h2>Conclusions and Extensions</h2></hgroup><article  id="conclusions-and-extensions">
+
+<ul>
+<li>ICH Segmentation has high specificity</li>
+<li>Good for Localization</li>
+<li>OK for volume estimates</li>
+<li>Good enough for adaptive randomization</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Thanks</h2></hgroup><article  id="thanks">
+
+<p>Main Collaborators</p>
+
+<div class="columns-2">
+<center><table>
+<tr>
+<td>
+
+<img src="Hanley.jpg" style="width:150px; height:100px;" alt="Demog">
+
+</td>
+<td>
+
+<img src="Ciprian.jpg" style="width:100px; height:125px;" alt="Demog">
+
+</td>
+</tr>
+</table></center>
+
+
+
+<center><table>
+<tr>
+
+<img src="Ullman.jpg" style="width:125px; height:125px;" alt="Demog"> <img src="Sweeney.jpg" style="width:125px; height:125px;" alt="Demog">
+
+</tr> 
+</table></center>
+
+
+
+<ul>
+<li>Groups</li>
+</ul>
+
+<center><table>
+<tr> <td>
+
+<img src="SMART.png" style="width:200px; height:100px;" alt="Demog">
+
+</td> <td> 
+
+<img src="BIOS.png" style="width:200px; height:100px;" alt="Demog">
+
+</td>
+</tr>
+</table></center>
+
+
+<ul>
+<li>Funding</li>
+</ul>
+
+<center><table>
+<tr> <td>
+
+T32AG000247
+
+</td><td> 
+
+NIA
+
+</td></tr>
+<tr> <td>
+
+RO1EB012547
+
+</td><td> 
+
+NIBIB
+
+</td> </tr>
+<tr> <td>
+
+R01NS046309, RO1NS060910, RO1NS085211, R01NS046309, U01NS080824 and U01NS062851
+
+</td> <td>
+
+NINDS
+
+</td> </tr>
+<tr><td>
+
+RO1MH095836
+
+</td> <td> 
+
+NIMH
+
+</td></tr>
+</table></center>
+</div></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script src="Oral_Proposal_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+<script src="Oral_Proposal_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+<script src="Oral_Proposal_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+<script src="Oral_Proposal_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+<script src="Oral_Proposal_files/ioslides-13.5.1/js/hammer.js"></script>
+<script src="Oral_Proposal_files/ioslides-13.5.1/js/slide-controller.js"></script>
+<script src="Oral_Proposal_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "Oral_Proposal_files/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
