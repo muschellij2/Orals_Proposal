@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Automatic Intracerebral Hemorrhage Segmentation of CT Scans</title>
+  <title>Automated Intracerebral Hemorrhage Segmentation of CT Scans</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,7 +26,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Automatic Intracerebral Hemorrhage Segmentation of CT Scans',
+                title: 'Automated Intracerebral Hemorrhage Segmentation of CT Scans',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -112,17 +112,10 @@
 
 
 
-<slide class=''><hgroup><h2>Logic of the Talk</h2></hgroup><article  id="logic-of-the-talk">
 
-<ul>
-<li>We have patients with Intracerebral Hemorrhage and CT Data</li>
-<li>Problem: Manual Segmentation of Intracerebral Hemorrhage is costly</li>
-<li>We propose an automated solution using logistic regression</li>
-</ul>
+<slide class=''><hgroup><h2>What is Intracranial hemorrhage?</h2></hgroup><article  id="what-is-intracranial-hemorrhage">
 
-</article></slide><slide class=''><hgroup><h2>What is Intracranial hemorrhage?</h2></hgroup><article  id="what-is-intracranial-hemorrhage">
-
-<div class="columns-2">
+<div class="columns-2" style="font-size: 28pt;">
 <ul>
 <li>When a blood vessel ruptures into
 
@@ -137,6 +130,17 @@
 
 <p><sub><sup><a href='http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm' title=''>http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm</a></sup></sub></p></div>
 
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Larger ICH Volume ⇒ Worse Outcome</h2></hgroup><article  id="larger-ich-volume-worse-outcome">
+
+<div id="botval-content" style="font-size: 10pt; color:white;">
+<p>J. P. Broderick, T. G. Brott, J. E. Duldner, et al. <strong>&quot;Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality.&quot;</strong> In: <em>Stroke</em> 24.7 (1993), pp. 987-993.</p>
+
+<p>S. Davis, J. Broderick, M. Hennerici, et al. <strong>&quot;Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage&quot;</strong>. In: <em>Neurology</em> 66.8 (2006), pp. 1175-1181.</p>
+
+<p>L. C. Jordan, J. T. Kleinman and A. E. Hillis. <strong>&quot;Intracerebral hemorrhage volume predicts poor neurologic outcome in children&quot;</strong>. In: <em>Stroke</em> 40.5 (2009), pp. 1666-1671.</p>
+
+S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage&quot;</strong>. In: <em>Critical care medicine</em> 27.3 (1999), pp. 617-621.</div>
+
 </article></slide><slide class=''><hgroup><h2>X-ray Computed Tomography (CT) Scans</h2></hgroup><article  id="x-ray-computed-tomography-ct-scans">
 
 <aside class='note'><section>Images are acquired from an X-ray scanner.<br/>x-ray goes around object and detector the other side of the object determines how many x-rays are recovered - fancy transform - Image!</section></aside>
@@ -147,65 +151,6 @@
 <div style="margin-left:48%;">
 <img src='figure/100-318_20070724_0026_CT_3_CT_Head-.png' title=''/></div>
 
-</article></slide><slide class=''><hgroup><h2>Data Used</h2></hgroup><article  id="data-used">
-
-<div style="float:right;width:500px">
-<table class = 'rmdtable'>
-<tr class="header">
-<th align="center"> </th>
-<th align="center">Overall</th>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Age (Mean (SD))</strong></td>
-<td align="center">60.66 (11.25)</td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Gender = Male (%)</strong></td>
-<td align="center">77 (68.8)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Race (%)</strong></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Caucasian</strong></td>
-<td align="center">60 (53.6)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>African American</strong></td>
-<td align="center">35 (31.2)</td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Hispanic</strong></td>
-<td align="center">12 (10.7)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Other</strong></td>
-<td align="center">5 ( 4.5)</td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Diagnostic ICH Volume (Mean (SD))</strong></td>
-<td align="center">37.74 (20.24)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Diagnostic IVH Volume (Mean (SD))</strong></td>
-<td align="center">3.23 (6.28)</td>
-</tr>
-</table></div>
-
-<div style="margin-right:500px;">
-<p>CT scans from MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) trial.</p>
-
-<ul>
-<li>112 scans from 112 patients (1 per patient)</li>
-<li>First scan patient received used <img src='figure/MISTIE3-LOGO.png' title=''/></li>
-</ul></div>
-
-</article></slide><slide class=''><hgroup><h2>Image Representation: voxels (3D pixels)</h2></hgroup><article  id="image-representation-voxels-3d-pixels">
-
-<div class="columns-2">
-<img src='figure/Zoom_No_ICH.png' title=''/> <img src='figure/movie_final.gif' title=''/></div>
-
 </article></slide><slide class=''><hgroup><h2>CT scan Characteristics</h2></hgroup><article  id="ct-scan-characteristics">
 
 <aside class='note'><section><ul>
@@ -213,13 +158,14 @@
 <li>Note the bone An attenuation coefficient characterizes how easily the X-ray beam penetrated that area of the brain.</li>
 </ul></section></aside>
 
-<div class="columns-2">
+<div class="columns-2" style="font-size: 22pt;">
 <img src='figure/100-318_20070724_0026_CT_3_CT_Head-.png' title=''/>
 
 <ul>
 <li>Data are in Hounsfield Units (HU), which are &quot;standardized&quot; \[
 HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
 \] where \(\mu\) is the linear attenuation coefficient and \(v\) denotes voxel.</li>
+<li>\(\mu_{\text{water}}\) and \(\mu_{\text{air}}\) are calibrations from each scanner.</li>
 </ul></div>
 
 </article></slide><slide class=''><hgroup><h2>CT scan Characteristics</h2></hgroup><article  id="ct-scan-characteristics-1">
@@ -228,10 +174,10 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 <li>Here are the HU ranges for stuff</li>
 </ul></section></aside>
 
-<div class="columns-2">
+<div class="columns-2" style="font-size: 25pt;">
 <img src='figure/100-318_20070724_0026_CT_3_CT_Head-.png' title=''/>
 
-<p>HU Ranges:</p>
+<p>Standard HU Ranges:</p>
 
 <ul>
 <li>Bone – high intensity (1000 HU)</li>
@@ -241,87 +187,106 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 <li>White/Gray Matter ≈ 0 - 100 HU</li>
 </ul></div>
 
-</article></slide><slide class=''><hgroup><h2>Intracerebral Hemorrhage: Segmented</h2></hgroup><article  id="intracerebral-hemorrhage-segmented">
+</article></slide><slide class=''><hgroup><h2>Get ICH Mask from Manual Segmentation</h2></hgroup><article  id="get-ich-mask-from-manual-segmentation">
 
 <div class="columns-2">
 <img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI.png' title=''/>
 
 <img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI_binary.png' title=''/></div>
 
-</article></slide><slide class=''><hgroup><h2>Larger ICH Volume ⇒ Worse Outcome</h2></hgroup><article  id="larger-ich-volume-worse-outcome">
+</article></slide><slide class=''><hgroup><h2>Problems with Manual Segmentation</h2></hgroup><article  id="problems-with-manual-segmentation">
 
-<p>J. P. Broderick, T. G. Brott, J. E. Duldner, et al. <strong>&quot;Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality.&quot;</strong> In: <em>Stroke</em> 24.7 (1993), pp. 987-993.</p>
-
-<p>S. Davis, J. Broderick, M. Hennerici, et al. <strong>&quot;Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage&quot;</strong>. In: <em>Neurology</em> 66.8 (2006), pp. 1175-1181.</p>
-
-<p>L. C. Jordan, J. T. Kleinman and A. E. Hillis. <strong>&quot;Intracerebral hemorrhage volume predicts poor neurologic outcome in children&quot;</strong>. In: <em>Stroke</em> 40.5 (2009), pp. 1666-1671.</p>
-
-<p>S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage&quot;</strong>. In: <em>Critical care medicine</em> 27.3 (1999), pp. 617-621.</p>
-
-</div>
-
-
-
-</article></slide><slide class=''><hgroup><h2>Problems with Manual Segmenation</h2></hgroup><article  id="problems-with-manual-segmenation">
-
-<div class="columns-2">
+<div class="columns-2" style="font-size: 25pt;">
 <img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI.png' title=''/>
 
 <ul>
-<li>ICH are manually traced (<strong>gold standard</strong>)
+<li>Manual tracing is the <strong>gold standard</strong> but:
 
 <ul>
-<li>Time-consuming (can be over 20 mins per scan), costly</li>
-<li>Within and across-rater variability</li>
+<li>Time-consuming</li>
+<li>Requires training</li>
+<li>Has within- and across-rater variability</li>
 </ul></li>
 <li>Infeasible for large databases</li>
 </ul></div>
 
-</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Solution: Primary Intracerebral Hemorrhage Prediction Employing Regression and Features Extracted from CT (PItcHPERFECT)</h2></hgroup><article  id="solution-primary-intracerebral-hemorrhage-prediction-employing-regression-and-features-extracted-from-ct-pitchperfect">
+</article></slide><slide class=''><hgroup><h2>Solution: PItcHPERFECT</h2></hgroup><article  id="solution-pitchperfect" class="flexbox vcenter">
+
+<div style="font-size: 35pt;">
+<b>P</b>rimary <br><strong>I</strong>n<strong>t</strong>ra<strong>c</strong>erebral<br> <strong>H</strong>emorrhage<br> <strong>P</strong>rediction<br> <strong>E</strong>mploying<br> <strong>R</strong>egression and<br> <strong>F</strong>eatures<br> <strong>E</strong>xtracted from<br> <strong>CT</strong></div>
+
+</article></slide><slide class=''><hgroup><h2><img src="figure/Covariates.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section">
 
 </article></slide><slide class=''><hgroup><h2>PItcHPERFECT uses Logistic Regression</h2></hgroup><article  id="pitchperfect-uses-logistic-regression">
 
-<p>Let \(Y\) be the binary 0/1 indicator if a voxel \(j\)is classified as ICH, \(1\dots v_{i}\) for person \(i\).<br/>\[
-\text{logit}\left(Y_{i, j}\right) = \beta_0 + X_{i, j}\beta
-\] where \(X_{i,j}\) is a \(v_{i}\times p\) matrix of predictors and \(\beta \in \mathbb{R}^p\).</p>
+<p>Let \(y_{i,j}\) be the presence / absence of ICH for voxel \(j\) from person \(i\). \[
+\text{logit}\left(y_{i, j}\right) = \beta_0 + \sum_{k= 1}^{p} x_{i, j, k}\beta_{k}
+\]</p>
 
 <ul>
-<li>Note, we do not take into account the spatial dependence of voxels.</li>
-<li>This model may be fit on a person level (where \(i\) is fixed), or across people \(i\) varies.</li>
+<li>Case-control sample voxels for a fixed percentage (25%) of outcome <img src="figure/Breakdown.png" style="width:650px;height:250px;display: block; margin: auto;"></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>What are the predictors?</h2></hgroup><article  id="what-are-the-predictors">
+<!--
+* Based on the scans from the first 10 patients (non-random)
+  + Fit logistic model, predict on non-training data, derive probability cutoff
+-->
+<!--
+where the $x$'s are: 
+<div style="width:45%;float: left;">
 
-<p>After some preprocessing and voxel selection, the predictors \(X\) are</p>
+ 1. Voxel intensity: $HU_{i,j}$
+ 2. Local moments (mean, sd, skew, kurtosis) of $HU_{i,j}$ 
+ 3-5. Stanardardized intensity: $\frac{HU_{i,j} - \mu_{i}}{\sigma_i}$
+ 6. Distance of voxel $j$ from brain center
+ </div>
+ <div style="margin-left:48%;">
+ 
+ 7-8. $I\left(HU_{i,j} \geq 40\, \&\, HU_{i,j} \leq 80\right)$ and local mean
+<br>
+ 9-10. Gaussian-smoothed image $(\sigma \in \{10, 20\}\text{mm})$
+ <br>
+  11.  Standardized intensity to a template: $\frac{HU_{i,j} - \mu_{i, temp}}{\sigma_{i, temp}}$
 
-<ul>
-<li>Intensity in HU (Raw image)</li>
-<li>Indicator if intensity <strong>\(\geq 40\)</strong> &amp; \(\leq 80\) HU (thresholded)</li>
-<li>Z-scores in all 3 planes with only brain image</li>
-<li>Distance from the center of the brain</li>
-<li>Local moments (mean, sd, skew, kurtosis) of intensity and thresholded intensity</li>
-<li>Smoothed image with large Gaussian smoothers (\(\sigma \in \{10, 20\}\)mm)</li>
-</ul>
+</div>
+-->
 
-</article></slide><slide class=''><hgroup><h2>Estimation of Model</h2></hgroup><article  id="estimation-of-model">
 
-<aside class='note'><section><ul>
-<li>Maybe a figure here instead of text</li>
-</ul></section></aside>
+</article></slide><slide class=''><hgroup><h2>Data Used: 112 scans (1 per patient)</h2></hgroup><article  id="data-used-112-scans-1-per-patient">
 
-<ul>
-<li>Built the Model based on 10 subjects (first 10, not randomly)</li>
-<li><p>Data were stratified sampled based on \(Y\) and a fixed percentage (25%) of positive outcomes were included, and cutoffs were optimized on the 10 scans</p></li>
-<li><p>Split the remaining subjects into \(51\) validation scans and \(51\) test scans and predicted \(Y_{i,j}\).</p></li>
-<li><p>We will present results on the \(51\) validation scans.</p></li>
-</ul>
+<div style="float:right;width:500px;">
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Overall</th>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Age (Mean (SD))</strong></td>
+<td align="center">60.7 (11.2)</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Gender = Male (%)</strong></td>
+<td align="center">77 (68.8)</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Diagnostic ICH Volume (Mean (SD))</strong></td>
+<td align="center">37.7 (20.2)</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Diagnostic IVH Volume (Mean (SD))</strong></td>
+<td align="center">3.2 (6.3)</td>
+</tr>
+</table></div>
+
+<div style="margin-right:500px;font-size: 30pt;">
+<p>CT scans from MISTIE II trial. <img src='figure/MISTIE3-LOGO.png' title=''/></p></div>
 
 </article></slide><slide class=''><hgroup><h2>Assessing Performance</h2></hgroup><article  id="assessing-performance">
 
-<p>For each scan we can calculate the following 2-by-2 table and a corresponding Venn diagram:</p>
+<p>For each validation scan we can calculate the following 2-by-2 table, where the cells represent number of voxels and a corresponding Venn diagram:</p>
 
 <div style="width:45%;float: left;">
-<table class = 'rmdtable'>
+<table class = 'rmdtable' style='font-size: 26px;'>
 <tr class = "header"><td></td><td></td><td colspan="2">
 
 Manual
@@ -344,7 +309,7 @@ PitCH
 
 0
 
-</td><td>
+</td><td style='font-size: 40px;'>
 
 TN
 
@@ -369,29 +334,26 @@ TP
 </table></div>
 
 <div style="margin-left:48%;">
-<img src="figure/Venn_Diagram_labeled.png" style="width:275px;height:275px;display: block; margin: auto;border:5px solid black""></div>
+<img src="figure/Venn_Diagram_labeled.png" style="width:325px;height:325px;display: block; margin: auto;border:5px solid black""></div>
 
-</article></slide><slide class=''><hgroup><h2>Dice Similarity</h2></hgroup><article  id="dice-similarity" class="build">
+</article></slide><slide class=''><hgroup><h2>Dice Similarity</h2></hgroup><article  id="dice-similarity">
 
 <div style="width:48%;float:left;">
-From this table, we can calculate the Dice Similarity Index (DSI): \[
+<p>We calculate the Dice Similarity Index (DSI): \[
 \definecolor{red}{RGB}{255,0,0}
 \definecolor{blue}{RGB}{0,0,255}
 \definecolor{purple}{RGB}{128,0,128}
 \definecolor{blac,}{RGB}{0,0,0}
 \frac{ \color{purple} 2 \times \#  \text{TP} }{ \color{purple}  2 \times \#\text{TP} \color{black} + \color{red} \text{FN} \color{black} + \color{blue} \text{FP}} 
-\]</div>
-
-<div style="margin-left:48%;">
-<p>A DSI of:</p>
+\]</p>
 
 <ul>
 <li>0 indicates no overlap</li>
-<li>1 means perfect agreement</li>
+<li>1 means perfect agreement<br/></li>
 </ul></div>
 
-<div style="width:48%;float:left;">
-<p><img src="figure/Fraction_Figure.png" style="width:400px;height:400px;display: block; margin: auto;"></p></div>
+<div style="margin-left:48%;">
+<p><img src="figure/Fraction_Figure.png" style="width:400px;height:460px;display: block; margin: auto;"></p></div>
 
 </article></slide><slide class=''><hgroup><h2>Test case: Manual Segmentation</h2></hgroup><article  id="test-case-manual-segmentation">
 
@@ -405,7 +367,7 @@ From this table, we can calculate the Dice Similarity Index (DSI): \[
 
 <p><img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-</article></slide><slide class=''><hgroup><h2><img src="figure/Modeling_Training_Dice_Rigid_zval2_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section">
+</article></slide><slide class=''><hgroup><h2><img src="figure/Modeling_Training_Dice_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section-1">
 
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Thanks</h2></hgroup><article  id="thanks">
 
@@ -413,61 +375,12 @@ From this table, we can calculate the Dice Similarity Index (DSI): \[
 
 <p><img src="figure/Prediction_Figure_303.png" style="width:500px;  display: block; margin: auto;"></p>
 
-</article></slide><slide class=''><hgroup><h2>Demographics of Patients</h2></hgroup><article  id="demographics-of-patients">
+</article></slide><slide class=''><hgroup><h2>Image Representation: voxels (3D pixels)</h2></hgroup><article  id="image-representation-voxels-3d-pixels">
 
-<div style="float:right;width:500px">
-<table class = 'rmdtable'>
-<tr class="header">
-<th align="center"> </th>
-<th align="center">Overall</th>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Age (Mean (SD))</strong></td>
-<td align="center">60.66 (11.25)</td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Gender = Male (%)</strong></td>
-<td align="center">77 (68.8)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Race (%)</strong></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Caucasian</strong></td>
-<td align="center">60 (53.6)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>African American</strong></td>
-<td align="center">35 (31.2)</td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Hispanic</strong></td>
-<td align="center">12 (10.7)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Other</strong></td>
-<td align="center">5 ( 4.5)</td>
-</tr>
-<tr class="even">
-<td align="center"><strong>Diagnostic ICH Volume (Mean (SD))</strong></td>
-<td align="center">37.74 (20.24)</td>
-</tr>
-<tr class="odd">
-<td align="center"><strong>Diagnostic IVH Volume (Mean (SD))</strong></td>
-<td align="center">3.23 (6.28)</td>
-</tr>
-</table></div>
+<div class="columns-2">
+<img src='figure/Zoom_No_ICH.png' title=''/> <img src='figure/movie_final.gif' title=''/></div>
 
-<div style="margin-right:500px;">
-<p>Data from the MISTIE (Minimally Invasive Surgery plus rt-PA for ICH Evacuation) trial.</p>
-
-<ul>
-<li>Patients with ICH at presentation</li>
-<li>112 patients from 112 scans</li>
-</ul></div>
-
-<img src='figure/MISTIE3-LOGO.png' title=''/></article></slide>
+</article></slide><slide class=''><hgroup><h2><img src="figure/Modeling_Training_BA_Volume_Plot_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section-2"></article></slide>
 
 
   <slide class="backdrop"></slide>
