@@ -3,6 +3,7 @@ John Muschelli
 January 13, 2015  
 
 
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
 </script>

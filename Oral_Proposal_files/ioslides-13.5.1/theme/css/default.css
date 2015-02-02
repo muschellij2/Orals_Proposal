@@ -242,8 +242,7 @@ slides > slide {
   display: none;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 26px;
-  /*color: #797979;*/
-  color: #000000;
+  color: #797979;
   width: 900px;
   height: 700px;
   margin-left: -450px;
@@ -1238,7 +1237,7 @@ article.smaller q:before, article.smaller q:after {
 /* line 820, ../scss/default.scss */
 .segue hgroup {
   position: absolute;
-  bottom: 350px;
+  bottom: 225px;
 }
 
 /* line 826, ../scss/default.scss */
