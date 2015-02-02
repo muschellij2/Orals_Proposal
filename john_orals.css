@@ -20,4 +20,13 @@ slides > slide.nb2:after {
 table.rmdtable tr, table.rmdtable td {
     padding-top: 0em;
     padding-bottom: 0em;
+    font-size: 24px;
+
 }
+
+#botval { position: relative; }
+#botval-content { position: absolute; bottom: 15%; left: 0; }
+
+/*slides > slide {
+  font-size: 26px;
+}*/
