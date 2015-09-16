@@ -142,7 +142,7 @@ Standard HU Ranges:
 </div>
 
 
-## <img src="figure/Covariates.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO">
+## Covariates <img src="figure/Covariates2.png" style="width:550px; display: block; margin: auto;" alt="MISTIE LOGO">
 
 ## PItcHPERFECT uses Logistic Regression
 Let $y_{i,j}$ be the presence / absence of ICH for voxel $j$ from person $i$.
@@ -262,7 +262,7 @@ $$
 
 
 
-## Prediction Comparison: DSI: 0.686
+## Prediction Comparison: DSI: 0.686 {.nb2}
 
 <img src="figure/Prediction_Figure_303.png" style="width:500px;  display: block; margin: auto;">
 

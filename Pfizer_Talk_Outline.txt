@@ -1,0 +1,41 @@
+Outline of Talk
+    - Collaborative Work with Dan...
+    - How did I get on this project?
+        - fMRI lab
+        - Saw how little they were using the CT analytically
+            - but the data is everywhere
+
+Stroke - Ischemic vs. Hemorrhagic
+- Description of Data/Trial
+
+    - Why CT? - protocol
+    - CT vs. MRI
+        - Multiple Scanners
+        - Not as big of a concern
+        - Do analysis by scanner type
+
+Data Analysis 
+    - First - Skull Stripping
+        - Literature out there
+        - Use BET and simple thresholding
+            - MRI labs - oh yeah that's easy
+            - Clinicians - some mind blown, most in the middle
+        
+
+    - Only one scan - not multi-modal or multi-sequence
+        - have to derive descriptors
+
+
+Model
+    - Random forest worked well
+        - likely due to high collinearity of terms
+    - simple logistic regression did almost as well
+        - 
+Better approaches
+    - PCA on the design matrix
+    - Lasso or some regularization 
+        - PCA + lasso
+
+
+Extra slides
+    - Population/Demographics

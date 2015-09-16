@@ -17,6 +17,10 @@ slides > slide.nb2:after {
   line-height: 1.9;
 }
 
+#nextsteps {
+   content: "";
+}
+
 table.rmdtable tr, table.rmdtable td {
     padding-top: 0em;
     padding-bottom: 0em;

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automated Intracerebral Hemorrhage Segmentation of CT Scans</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+  <meta name="date" content="2015-08-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" media="all" href="JSM_2015_Talk_files/ioslides-13.5.1/fonts/fonts.css">
+
+  <link rel="stylesheet" media="all" href="JSM_2015_Talk_files/ioslides-13.5.1/theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="JSM_2015_Talk_files/ioslides-13.5.1/theme/css/phone.css">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Automated Intracerebral Hemorrhage Segmentation of CT Scans',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+              },
+
+      // Author information
+      presenters: [
+            {
+        name:  'John Muschelli' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="john_orals.css" type="text/css" />
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">2015-08-09</p>
+          </hgroup>
+  </slide>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+</script>
+
+<slide class=''><hgroup><h2>What is Intracranial hemorrhage?</h2></hgroup><article  id="what-is-intracranial-hemorrhage">
+
+<div class="columns-2" style="font-size: 28pt;">
+<ul>
+<li>When a blood vessel ruptures into</li>
+<li>tissue: intracerebral hemorrhage (ICH)</li>
+<li>ventricles: intraventricular hemorrhage (IVH)</li>
+<li>≈ 13% of strokes</li>
+</ul>
+
+<img src='figure/stroke_hem_web.jpg' title=''/>
+
+<p><a href = "http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm" style ="font-size:10.5px" >http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm</a></p></div>
+
+</article></slide><slide class=''><hgroup><h2>Get ICH Mask from Manual Segmentation</h2></hgroup><article  id="get-ich-mask-from-manual-segmentation">
+
+<div class="columns-2">
+<img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI.png' title=''/>
+
+<img src='figure/100-318_20070724_0026_CT_3_CT_Head-ROI_binary.png' title=''/></div>
+
+</article></slide><slide class=''><hgroup><h2>Covariates <img src="figure/Covariates2.png" style="width:550px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="covariates">
+
+</article></slide><slide class=''><hgroup><h2>PItcHPERFECT uses Logistic Regression</h2></hgroup><article  id="pitchperfect-uses-logistic-regression">
+
+<p>Let \(y_{i,j}\) be the presence / absence of ICH for voxel \(j\) from person \(i\). \[
+  \text{logit}\left(y_{i, j}\right) = \beta_0 + \sum_{k= 1}^{p} x_{i, j, k}\beta_{k}
+\]</p>
+
+<ul>
+<li>Case-control sample voxels for a fixed percentage (25%) of outcome <img src="figure/Breakdown.png" style="width:650px;height:250px;display: block; margin: auto;"></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2><img src="figure/Modeling_Training_Dice_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section">
+
+</article></slide><slide class=''><hgroup><h2>Prediction Comparison: DSI: 0.90</h2></hgroup><article  id="prediction-comparison-dsi-0.90">
+
+<p><img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Thanks</h2></hgroup><article  id="thanks"></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script src="JSM_2015_Talk_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+<script src="JSM_2015_Talk_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+<script src="JSM_2015_Talk_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+<script src="JSM_2015_Talk_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+<script src="JSM_2015_Talk_files/ioslides-13.5.1/js/hammer.js"></script>
+<script src="JSM_2015_Talk_files/ioslides-13.5.1/js/slide-controller.js"></script>
+<script src="JSM_2015_Talk_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "JSM_2015_Talk_files/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
