@@ -174,7 +174,7 @@
 
 S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage&quot;</strong>. In: <em>Critical care medicine</em> 27.3 (1999), pp. 617-621.</div>
 
-</article></slide><slide class=''><hgroup><h2>X-ray Computed Tomography (CT) Scans</h2></hgroup><article  id="x-ray-computed-tomography-ct-scans">
+</article></slide><slide class=''><hgroup><h2>Measure ICH using Computed Tomography (CT)</h2></hgroup><article  id="measure-ich-using-computed-tomography-ct">
 
 <aside class='note'><section>Images are acquired from an X-ray scanner.<br/>x-ray goes around object and detector the other side of the object determines how many x-rays are recovered - fancy transform - Image!</section></aside>
 
@@ -200,7 +200,7 @@ S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular
 <p><img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
 <ul>
-<li>Voxel Intensities are in Hounsfield Units (HU), which are &quot;standardized&quot; \[
+<li>Voxel intensities are in Hounsfield Units (HU), which are &quot;standardized&quot; \[
 HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
 \] where \(\mu\) is the linear attenuation coefficient and \(v\) denotes voxel.</li>
 <li>\(\mu_{\text{water}}\) and \(\mu_{\text{air}}\) are calibrated from each scanner.</li>
@@ -212,7 +212,7 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 <li>Here are the HU ranges for stuff</li>
 </ul></section></aside>
 
-<div class="columns-2" style="font-size: 25pt;">
+<div class="columns-2" style="font-size: 22pt;">
 <p><img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
 <p>Standard HU Ranges:</p>
@@ -224,6 +224,10 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 <li>Blood 30-80 HU</li>
 <li>White/Gray Matter ≈ 0 - 100 HU</li>
 </ul></div>
+
+</article></slide><slide class=''><hgroup><h2>CT scan Characteristics: Measures Human + Room + FOV</h2></hgroup><article  id="ct-scan-characteristics-measures-human-room-fov">
+
+<p><img src="figure/the_room.png" style="width:100%; display: block; margin: auto;" alt="The room"></p>
 
 </article></slide><slide class=''><hgroup><h2>CT is NOT MRI (specifically not T1/T2)</h2></hgroup><article  id="ct-is-not-mri-specifically-not-t1t2">
 
@@ -263,11 +267,7 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 </tr>
 </table>
 
-</article></slide><slide class=''><hgroup><h2>CT scan Characteristics: Measures Human + Room + FOV</h2></hgroup><article  id="ct-scan-characteristics-measures-human-room-fov">
-
-<p><img src="figure/the_room.png" style="width:100%; display: block; margin: auto;" alt="The room"></p>
-
-</article></slide><slide class=''><hgroup><h2>Overall Goal</h2></hgroup><article  id="overall-goal">
+</article></slide><slide class=''><hgroup><h2>PItcHPERFECT: Overall Goal</h2></hgroup><article  id="pitchperfect-overall-goal">
 
 <div class="columns-2">
 <p>Want to go from this <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
@@ -292,7 +292,38 @@ To This: <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  
 <li>Hard to use for enrollment criteria (adaptive randomization)</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Subjects and Demographics</h2></hgroup><article  id="subjects-and-demographics">
+</article></slide><slide class=''><hgroup><h2>Subject Data used: 112 scans (1 per patient)</h2></hgroup><article  id="subject-data-used-112-scans-1-per-patient">
+
+<div style="margin-left:500px;font-size: 30pt;">
+<ul>
+<li>Large ICH areas</li>
+<li>Small Intraventricular Hemorrhages (IVH)</li>
+<li></li>
+</ul></div>
+
+<div style="float:left;width:500px;">
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Overall</th>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Age (Mean (SD))</strong></td>
+<td align="center">60.7 (11.2)</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Gender = Male (%)</strong></td>
+<td align="center">77 (68.8)</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Diagnostic ICH Volume (Mean (SD))</strong></td>
+<td align="center">37.7 (20.2)</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Diagnostic IVH Volume (Mean (SD))</strong></td>
+<td align="center">3.2 (6.3)</td>
+</tr>
+</table></div>
 
 </article></slide><slide class=''><hgroup><h2>Step 1: CT Skull Stripping</h2></hgroup><article  id="step-1-ct-skull-stripping">
 
@@ -319,6 +350,38 @@ Result: <img src="figure/Thresh_Image.png" style="width:100%;  display: block; m
 
 <div class="columns-2">
 <p>Run Brain Extraction Tool from FSL: <img src="figure/Smooth_Thresh_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"> <br> Result (Skull Stripped Image): <img src="figure/SS_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p></div>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Imaging Predictors</h2></hgroup><article  id="imaging-predictors">
+
+</article></slide><slide class=''><hgroup><h2>Local Moment Information</h2></hgroup><article  id="local-moment-information">
+
+<p>For each voxel, neighborhood \(N(v)\), of all adjacent neighboring voxels in \(3\) dimensions. Let \(x_k(v)\) denote the voxel intensity in HU for voxel neighbor \(k\), where \(k = 1, \dots, 26\). Local mean: \[
+\begin{equation}
+\bar{x}(v) = \frac{1}{N(v)} \sum_{k \in N(v)} x_k(v) \label{eq:mean}
+\end{equation}
+\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Local Moment Information: Higher Moments</h2></hgroup><article  id="local-moment-information-higher-moments">
+
+<p>Local standard deviation (SD), skew, and kurtosis were also calculated: \[
+\begin{align}
+\text{SD}(v) &amp;= \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 } \\
+\text{Skew}(v) &amp;= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^3 } {\left[ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)- \bar{x}(v))^2\right]^{3/2}} \\
+\text{Kurtosis}(v) &amp;= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2} \\
+\end{align}
+\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Standardized-to-template Intensity</h2></hgroup><article  id="standardized-to-template-intensity">
+
+<p>From \(72\) CT images from (Gillebert, Humphreys, and Mantini, 2014), we created a voxel-wise mean image \(M\) and voxel-wise standard deviation \(S\) image, after registering to a CT template (Rorden, Bonilha, Fridriksson, et al., 2012). We created a standardized voxel intensity with respect to the template (\(z_{i,\text{template}}\)) using the following equation: \[
+z_{i,\text{template}}(v) = \frac{x_{i}(v) - M(v)}{S(v)}
+\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Global Head Information: Smoothed Images</h2></hgroup><article  id="global-head-information-smoothed-images">
+
+<p>We also created images which were obtained by smoothing the original image using large Gaussian kernels (\(\sigma = 10mm^3, 20mm^3\)), which can capture any potential homogeneity throughout the scan, denoted by \(s_{i,5}(v)\), \(s_{i,10}(v)\) and \(s_{i,20}(v)\), respectively.</p>
+
+<p><img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth10.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO"> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth20.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
 </article></slide><slide class=''><hgroup><h2>Covariates <img src="figure/Covariates2.png" style="width:550px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="covariates">
 

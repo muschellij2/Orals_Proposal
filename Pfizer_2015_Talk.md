@@ -11,6 +11,7 @@ September 17, 2015
 
 
 
+
 ## Neuroimaging Experience
 
 <div class="columns-2">
@@ -82,7 +83,7 @@ S. Tuhrim, D. R. Horowitz, M. Sacher, et al. **"Volume of ventricular blood is a
 pp. 617-621.
 </div>
 
-## X-ray Computed Tomography (CT) Scans
+## Measure ICH using Computed Tomography (CT)
 <div class="notes">
 Images are acquired from an X-ray scanner.  
 x-ray goes around object and detector the other side of the object determines how many x-rays are recovered 
@@ -119,7 +120,7 @@ An attenuation coefficient characterizes how easily the X-ray beam penetrated th
 <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 
-* Voxel Intensities are in Hounsfield Units (HU), which are "standardized"
+* Voxel intensities are in Hounsfield Units (HU), which are "standardized"
 $$
 HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
 $$
@@ -133,7 +134,7 @@ where $\mu$ is the linear attenuation coefficient and $v$ denotes voxel.
 - Here are the HU ranges for stuff
 </div>
 
-<div class="columns-2" style='font-size: 25pt;'>
+<div class="columns-2" style='font-size: 22pt;'>
 <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 Standard HU Ranges:
@@ -145,6 +146,10 @@ Standard HU Ranges:
 * White/Gray Matter ≈ 0 - 100 HU
 </div>
 
+
+## CT scan Characteristics: Measures Human + Room + FOV
+
+<img src="figure/the_room.png" style="width:100%; display: block; margin: auto;" alt="The room">
 
 
 ## CT is NOT MRI (specifically not T1/T2)
@@ -164,14 +169,10 @@ Standard HU Ranges:
  **Methods**             Sparse                  Many        
 -------------------------------------------------------------
 
-## CT scan Characteristics: Measures Human + Room + FOV
-
-<img src="figure/the_room.png" style="width:100%; display: block; margin: auto;" alt="The room">
 
 
 
-
-## Overall Goal 
+## PItcHPERFECT: Overall Goal 
 
 <div class="columns-2">
 
@@ -197,8 +198,23 @@ To This:
 * Hard to use for enrollment criteria (adaptive randomization)
 
 
-## Subjects and Demographics
+## Subject Data used: 112 scans (1 per patient)
+<div style="margin-left:500px;font-size: 30pt;">
+- Large ICH areas
+- Small Intraventricular Hemorrhages (IVH)
+  - 
+</div>
 
+<div style="float:left;width:500px;">
+
+
+|                 &nbsp;                  |   Overall   |
+|:---------------------------------------:|:-----------:|
+|           **Age (Mean (SD))**           | 60.7 (11.2) |
+|          **Gender = Male (%)**          |  77 (68.8)  |
+|  **Diagnostic ICH Volume (Mean (SD))**  | 37.7 (20.2) |
+|  **Diagnostic IVH Volume (Mean (SD))**  |  3.2 (6.3)  |
+</div>
 
 
 ## Step 1: CT Skull Stripping
@@ -249,6 +265,42 @@ Result (Skull Stripped Image):
 <img src="figure/SS_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 </div>
+
+# Imaging Predictors
+
+
+## Local Moment Information
+For each voxel,  neighborhood $N(v)$, of all adjacent neighboring voxels in $3$ dimensions.  Let $x_k(v)$ denote the voxel intensity in HU for voxel neighbor $k$, where $k = 1, \dots, 26$. 
+Local mean: 
+$$
+\begin{equation}
+\bar{x}(v) = \frac{1}{N(v)} \sum_{k \in N(v)} x_k(v) \label{eq:mean}
+\end{equation}
+$$
+
+## Local Moment Information: Higher Moments
+Local standard deviation (SD), skew, and kurtosis were also calculated:
+$$
+\begin{align}
+\text{SD}(v) &= \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 } \\
+\text{Skew}(v) &= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^3 } {\left[ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)- \bar{x}(v))^2\right]^{3/2}} \\
+\text{Kurtosis}(v) &= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2} \\
+\end{align}
+$$
+
+
+## Standardized-to-template Intensity
+From $72$ CT images from (Gillebert, Humphreys, and Mantini, 2014), we created a voxel-wise mean image $M$ and voxel-wise standard deviation $S$ image, after registering to a CT template (Rorden, Bonilha, Fridriksson, et al., 2012).   We created a standardized voxel intensity with respect to the template ($z_{i,\text{template}}$) using the following equation:
+$$
+z_{i,\text{template}}(v) = \frac{x_{i}(v) - M(v)}{S(v)}
+$$
+
+## Global Head Information: Smoothed Images
+
+We also created images which were obtained by smoothing the original image using large Gaussian kernels ($\sigma = 10mm^3, 20mm^3$), which can capture any potential homogeneity throughout the scan, denoted by $s_{i,5}(v)$, $s_{i,10}(v)$ and $s_{i,20}(v)$, respectively.  
+
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth10.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO">
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth20.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 
 ## Covariates <img src="figure/Covariates2.png" style="width:550px;  display: block; margin: auto;" alt="MISTIE LOGO">  
