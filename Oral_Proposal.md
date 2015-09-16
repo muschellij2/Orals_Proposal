@@ -262,7 +262,7 @@ $$
 
 
 
-## Prediction Comparison: DSI: 0.686 {.nb2}
+## Prediction Comparison: DSI: 0.686
 
 <img src="figure/Prediction_Figure_303.png" style="width:500px;  display: block; margin: auto;">
 

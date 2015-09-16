@@ -277,16 +277,30 @@ $$
 \bar{x}(v) = \frac{1}{N(v)} \sum_{k \in N(v)} x_k(v) \label{eq:mean}
 \end{equation}
 $$
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment1.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 ## Local Moment Information: Higher Moments
-Local standard deviation (SD), skew, and kurtosis were also calculated:
+
+<div class="columns-2"  style='font-size: 20px;'>
+
 $$
 \begin{align}
 \text{SD}(v) &= \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 } \\
 \text{Skew}(v) &= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^3 } {\left[ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)- \bar{x}(v))^2\right]^{3/2}} \\
-\text{Kurtosis}(v) &= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2} \\
+\text{Kurtosis}(v) &= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2} 
 \end{align}
 $$
+
+<br>
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment2.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment3.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment4.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
+</div>
+
+
+
+
+
 
 
 ## Standardized-to-template Intensity
@@ -297,11 +311,17 @@ $$
 
 ## Global Head Information: Smoothed Images
 
-We also created images which were obtained by smoothing the original image using large Gaussian kernels ($\sigma = 10mm^3, 20mm^3$), which can capture any potential homogeneity throughout the scan, denoted by $s_{i,5}(v)$, $s_{i,10}(v)$ and $s_{i,20}(v)$, respectively.  
+Smoothing the original image using large Gaussian kernels ($\sigma = 10mm^3, 20mm^3$) can capture any potential homogeneity throughout the scan.  
 
-<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth10.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO">
-<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth20.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO">
+<div class="columns-2">
+$\sigma = 10$
 
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth10.png" style="width:100%; display: block; margin: auto;" alt="MISTIE LOGO">
+
+$\sigma = 20$
+
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth20.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
+</div>
 
 ## Covariates <img src="figure/Covariates2.png" style="width:550px;  display: block; margin: auto;" alt="MISTIE LOGO">  
 
