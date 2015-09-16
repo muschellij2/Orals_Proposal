@@ -123,9 +123,21 @@
 <p>R Packages:</p>
 
 <ul>
-<li>fslr</li>
+<li>fslr
+
+<p style="font-size: 12pt;">
+
+(Muschelli, John, et al. &quot;fslr: Connecting the FSL Software with R.&quot; R JOURNAL 7.1 (2015): 163-175.)
+
+</p></li>
+<li>brainR
+
+<p style="font-size: 12pt;">
+
+(Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. &quot;brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data.&quot; R JOURNAL 6.1 (2014): -48.)
+
+</p></li>
 <li>WhiteStripe</li>
-<li>brainR</li>
 <li>drammsr</li>
 <li>extrantsr</li>
 <li>dcm2niir</li>
@@ -133,19 +145,12 @@
 <li>spm12r</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Stroke Trial Data</h2></hgroup><article  id="stroke-trial-data">
+</article></slide><slide class=''><hgroup><h2>PItcHPERFECT: Overall Goal</h2></hgroup><article  id="pitchperfect-overall-goal">
 
-<ul>
-<li><p>Intracerebral (bleeds mainly in tissue, <strong>ICH</strong>) or Intraventricular (bleeds into ventricles, <strong>IVH</strong>) Hemorrhage trials</p></li>
-<li>Minimally Invasive Surgery plus rt-PA for ICH Evacuation (<strong>MISTIE</strong>)</li>
-<li><p>multi-center, multi-national Phase II clinical trial</p></li>
-</ul>
+<div class="columns-2">
+<p>Want to go from this <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-<p><img src="figure/MISTIE3-LOGO.png" style="width:200px; height:100px; display: block; margin: auto;" alt="MISTIE LOGO"></p>
-
-<ul>
-<li><a href='http://braininjuryoutcomes.com/mistie-about' title=''>http://braininjuryoutcomes.com/mistie-about</a></li>
-</ul>
+To This: <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
 
 </article></slide><slide class=''><hgroup><h2>What is Intracranial/Intracerebral hemorrhage?</h2></hgroup><article  id="what-is-intracranialintracerebral-hemorrhage">
 
@@ -161,12 +166,26 @@
 
 <p><a href = "http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm" style ="font-size:10.5px" >http://www.heartandstroke.com/site/c.ikIQLcMWJtE/b.3484153/k.7675/Stroke__Hemorrhagic_stroke.htm</a></p></div>
 
-</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Larger ICH Volume ⇒ Worse Outcome</h2></hgroup><article  id="larger-ich-volume-worse-outcome">
+</article></slide><slide class=''><hgroup><h2>Stroke Trial Data</h2></hgroup><article  id="stroke-trial-data">
+
+<ul>
+<li><p>Intracerebral (bleeds mainly in tissue, <strong>ICH</strong>) or Intraventricular (bleeds into ventricles, <strong>IVH</strong>) Hemorrhage trials</p></li>
+<li>Minimally Invasive Surgery plus rt-PA for ICH Evacuation (<strong>MISTIE</strong>)</li>
+<li><p>multi-center, multi-national Phase II clinical trial</p></li>
+</ul>
+
+<p><img src="figure/MISTIE3-LOGO.png" style="width:200px; height:100px; display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+<ul>
+<li><a href='http://braininjuryoutcomes.com/mistie-about' title=''>http://braininjuryoutcomes.com/mistie-about</a></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Larger ICH Volume ⇒ Worse Outcome</h2></hgroup><article  id="larger-ich-volume-worse-outcome">
 
 <br>
 
 <div id="botval-content" style="font-size: 10pt; color:white;">
-<p>J. P. Broderick, T. G. Brott, J. E. Duldner, et al. <strong>&quot;Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality.&quot;</strong> In: <em>Stroke</em> 24.7 (1993), pp. 987-993.</p>
+<p><br> J. P. Broderick, T. G. Brott, J. E. Duldner, et al. <strong>&quot;Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality.&quot;</strong> In: <em>Stroke</em> 24.7 (1993), pp. 987-993.</p>
 
 <p>S. Davis, J. Broderick, M. Hennerici, et al. <strong>&quot;Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage&quot;</strong>. In: <em>Neurology</em> 66.8 (2006), pp. 1175-1181.</p>
 
@@ -267,13 +286,6 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 </tr>
 </table>
 
-</article></slide><slide class=''><hgroup><h2>PItcHPERFECT: Overall Goal</h2></hgroup><article  id="pitchperfect-overall-goal">
-
-<div class="columns-2">
-<p>Want to go from this <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
-
-To This: <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
-
 </article></slide><slide class=''><hgroup><h2>ICH Prediction - Training data</h2></hgroup><article  id="ich-prediction---training-data">
 
 <ul>
@@ -363,7 +375,7 @@ Result: <img src="figure/Thresh_Image.png" style="width:100%;  display: block; m
 
 </article></slide><slide class=''><hgroup><h2>Local Moment Information: Higher Moments</h2></hgroup><article  id="local-moment-information-higher-moments">
 
-<div class="columns-2" style="font-size: 20px;">
+<div class="columns-2" style="font-size: 12px;">
 <p>\[
 \begin{align}
 \text{SD}(v) &amp;= \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 } \\

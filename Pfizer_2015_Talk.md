@@ -32,25 +32,26 @@ All analyses/figures/slides were written in [`R`](https://cran.r-project.org/).
 
 R Packages:
 
-- fslr
+- fslr <p style='font-size: 12pt;'>(Muschelli, John, et al. "fslr: Connecting the FSL Software with R." R JOURNAL 7.1 (2015): 163-175.)</p>
+- brainR <p style='font-size: 12pt;'>(Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. "brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data." R JOURNAL 6.1 (2014): -48.)</p>
 - WhiteStripe
-- brainR
 - drammsr
 - extrantsr
 - dcm2niir
 - matlabr
 - spm12r
 
-## Stroke Trial Data
+## PItcHPERFECT: Overall Goal 
 
-* Intracerebral (bleeds mainly in tissue, <strong>ICH</strong>) or Intraventricular (bleeds into ventricles, <strong>IVH</strong>) Hemorrhage trials
+<div class="columns-2">
 
-* Minimally Invasive Surgery plus rt-PA for ICH Evacuation (<strong>MISTIE</strong>) 
- - multi-center, multi-national Phase II clinical trial
+Want to go from this
+<img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-<img src="figure/MISTIE3-LOGO.png" style="width:200px; height:100px; display: block; margin: auto;" alt="MISTIE LOGO">
+To This:
+<img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
+</div>
 
-* http://braininjuryoutcomes.com/mistie-about
 
 ## What is Intracranial/Intracerebral hemorrhage?
 
@@ -66,12 +67,26 @@ R Packages:
   
 </div>
 
+## Stroke Trial Data
 
-# Larger ICH Volume ⇒ Worse Outcome
+* Intracerebral (bleeds mainly in tissue, <strong>ICH</strong>) or Intraventricular (bleeds into ventricles, <strong>IVH</strong>) Hemorrhage trials
+
+* Minimally Invasive Surgery plus rt-PA for ICH Evacuation (<strong>MISTIE</strong>) 
+ - multi-center, multi-national Phase II clinical trial
+
+<img src="figure/MISTIE3-LOGO.png" style="width:200px; height:100px; display: block; margin: auto;" alt="MISTIE LOGO">
+
+* http://braininjuryoutcomes.com/mistie-about
+
+
+
+
+## Larger ICH Volume ⇒ Worse Outcome
 
 
 <br>
 <div style="font-size: 10pt; color:white;" id = 'botval-content'>
+<br>
 J. P. Broderick, T. G. Brott, J. E. Duldner, et al. **"Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality."** In: _Stroke_ 24.7 (1993), pp. 987-993.
 
 S. Davis, J. Broderick, M. Hennerici, et al. **"Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage"**. In: _Neurology_ 66.8 (2006), pp. 1175-1181.
@@ -171,18 +186,6 @@ Standard HU Ranges:
 
 
 
-
-## PItcHPERFECT: Overall Goal 
-
-<div class="columns-2">
-
-Want to go from this
-<img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
-
-To This:
-<img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
-</div>
-
 ## ICH Prediction - Training data
 
 * ICH are manually traced (**gold standard**)
@@ -281,7 +284,7 @@ $$
 
 ## Local Moment Information: Higher Moments
 
-<div class="columns-2"  style='font-size: 20px;'>
+<div class="columns-2"  style='font-size: 12px;'>
 
 $$
 \begin{align}
@@ -296,9 +299,6 @@ $$
 <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment3.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
 <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment4.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
 </div>
-
-
-
 
 
 
