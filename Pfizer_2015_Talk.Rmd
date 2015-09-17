@@ -68,12 +68,12 @@ tb1 = CreateTableOne(vars = vars, factorVars = catvars,
                     data = demog)
 tb1 = print(tb1, contDigits = 1)
 gen = grepl("Gender", rownames(tb1))
-rownames(tb1)[ gen ] = "Male (N (%))"
+rownames(tb1)[ gen ] = "Male: N (%)"
 tb1[gen,1] = gsub("\\((.*)\\)", "(\\1%)", tb1[gen,1,drop=FALSE])
 
 rownames(tb1) = gsub("_", " ", rownames(tb1))
-rownames(tb1) = gsub("mean", "Mean", rownames(tb1))
-rownames(tb1) = gsub("(sd)", "(SD)", rownames(tb1), fixed=TRUE)
+rownames(tb1) = gsub(" \\(mean", ": Mean", rownames(tb1))
+rownames(tb1) = gsub("(sd))", "(SD)", rownames(tb1), fixed=TRUE)
 rownames(tb1) = gsub("Volume", "Volume in mL", rownames(tb1), fixed=TRUE)
 rownames(tb1) = gsub("Age", "Age in Years", rownames(tb1), fixed=TRUE)
 tb1 = tb1[rownames(tb1) != "n", , drop=FALSE]

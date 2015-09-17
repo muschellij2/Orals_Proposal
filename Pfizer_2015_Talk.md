@@ -220,12 +220,12 @@ Standard HU Ranges:
 <div id="left_col">
 
 
-|                    &nbsp;                     |   Overall   |
-|:---------------------------------------------:|:-----------:|
-|         **Age in Years (Mean (SD))**          | 60.7 (11.2) |
-|               **Male (N (%))**                | 77 (68.8%)  |
-|  **Diagnostic ICH Volume in mL (Mean (SD))**  | 37.7 (20.2) |
-|  **Diagnostic IVH Volume in mL (Mean (SD))**  |  3.2 (6.3)  |
+|                    &nbsp;                    |   Overall   |
+|:--------------------------------------------:|:-----------:|
+|         **Age in Years: Mean (SD)**          | 60.7 (11.2) |
+|               **Male: N (%)**                | 77 (68.8%)  |
+|  **Diagnostic ICH Volume in mL: Mean (SD)**  | 37.7 (20.2) |
+|  **Diagnostic IVH Volume in mL: Mean (SD)**  |  3.2 (6.3)  |
 
 </div>
 <div id="right_col"  style='font-size: 24pt;'>
