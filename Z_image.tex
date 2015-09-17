@@ -1,0 +1,19 @@
+\documentclass[32pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[landscape]{geometry}
+\author{John Muschelli}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\raisebox{1.25em}{\ensuremath{#2}}}}%
+\newcommand{\thickfrac}[2]{\genfrac{}{}{3pt}{}{#1}{#2}}
+
+\begin{document}
+\pagestyle{empty}
+$$
+\thickfrac{\includegraphics[height = 2in, keepaspectratio=true]{figure/SS_Slice.png} \Scale[5]{-} \includegraphics[height = 2in, keepaspectratio=true]{figure/Mean_Slice.png}}{\includegraphics[height = 2in, keepaspectratio=true]{figure/SD_Slice.png}}
+$$
+
+\end{document}

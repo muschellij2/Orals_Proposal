@@ -389,12 +389,12 @@ $$
 
 
 
-## Standardized-to-template Intensity
+## Population Voxel-wise Mean/SD Image
 From $72$ CT images from `r citep("gillebert_automated_2014")`, we created a voxel-wise mean image $M$ and voxel-wise standard deviation $S$ image, after registering to a CT template `r citep("rorden_age-specific_2012")`.  
 
 <img src="figure/Z_template.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-
+## Standardized-to-template Intensity
 We created a standardized voxel intensity with respect to the template ($z_{i,\text{template}}$) using the following equation:
 $$
 z_{i,\text{template}}(v) = \frac{x_{i}(v) - M(v)}{S(v)}
