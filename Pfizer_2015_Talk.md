@@ -431,12 +431,15 @@ $$
 
 ## Conclusions
 
+<div style="font-size: 24pt">
+
 - Large ICH can be segmented using CT
 - Simple methods can be used for voxel-wise segmentation
 - A small training set can be used
 - Feature selection is important
 - All the analysis can be done in R
 
+</div>
 
 ## Other Projects {#nextsteps}
 
