@@ -216,19 +216,22 @@ Standard HU Ranges:
 
 
 ## Subject Data used: 111 scans (1 per patient)
-<div class="columns-2" style='font-size: 22pt;'>
+<div id="wrap">
+<div id="left_col">
 
-<div>
 
-|                 &nbsp;                  |   Overall   |
-|:---------------------------------------:|:-----------:|
-|           **Age (Mean (SD))**           | 60.7 (11.2) |
-|            **Male (N (%))**             | 77 (68.8%)  |
-|  **Diagnostic ICH Volume (Mean (SD))**  | 37.7 (20.2) |
-|  **Diagnostic IVH Volume (Mean (SD))**  |  3.2 (6.3)  |
+|                    &nbsp;                     |   Overall   |
+|:---------------------------------------------:|:-----------:|
+|         **Age in Years (Mean (SD))**          | 60.7 (11.2) |
+|               **Male (N (%))**                | 77 (68.8%)  |
+|  **Diagnostic ICH Volume in mL (Mean (SD))**  | 37.7 (20.2) |
+|  **Diagnostic IVH Volume in mL (Mean (SD))**  |  3.2 (6.3)  |
+
 </div>
-<div>
+<div id="right_col"  style='font-size: 24pt;'>
 
+
+- Adults (inclusion criteria 18-80 years old)
 - Large ICH areas
 - Small Intraventricular Hemorrhages (IVH)
 </div>

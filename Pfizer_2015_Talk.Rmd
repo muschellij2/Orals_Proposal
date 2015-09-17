@@ -74,6 +74,8 @@ tb1[gen,1] = gsub("\\((.*)\\)", "(\\1%)", tb1[gen,1,drop=FALSE])
 rownames(tb1) = gsub("_", " ", rownames(tb1))
 rownames(tb1) = gsub("mean", "Mean", rownames(tb1))
 rownames(tb1) = gsub("(sd)", "(SD)", rownames(tb1), fixed=TRUE)
+rownames(tb1) = gsub("Volume", "Volume in mL", rownames(tb1), fixed=TRUE)
+rownames(tb1) = gsub("Age", "Age in Years", rownames(tb1), fixed=TRUE)
 tb1 = tb1[rownames(tb1) != "n", , drop=FALSE]
 # tb1 = pander.return(tb1)
 # tb1 = tb1[ tb1 != ""]
@@ -280,16 +282,19 @@ pander(df)
 
 
 ## Subject Data used: 111 scans (1 per patient)
-<div class="columns-2" style='font-size: 22pt;'>
+<div id="wrap">
+<div id="left_col">
 
-<div>
 ```{r, results='asis'}
 x = pandoc.table.return(tb1, style="rmarkdown", split.table = Inf)
 cat(x)
 ```
-</div>
-<div>
 
+</div>
+<div id="right_col"  style='font-size: 24pt;'>
+
+
+- Adults (inclusion criteria 18-80 years old)
 - Large ICH areas
 - Small Intraventricular Hemorrhages (IVH)
 </div>
