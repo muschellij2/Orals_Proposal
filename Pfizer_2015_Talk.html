@@ -109,10 +109,24 @@
 
 <ul>
 <li>Reproducible Reports - 3 years</li>
-<li>CT Imaging Analysis - 4 years</li>
+<li>CT Imaging Analysis - 4 years
+
+<p style="font-size: 12pt;">
+
+(Muschelli, et al. &quot;Quantitative Intracerebral Hemorrhage Localization.&quot; Stroke (2015): 46.10. In Press.)
+
+</p></li>
 </ul></li>
-<li>fMRI lab - 2 years</li>
+<li>fMRI lab - 2 years
+
+<p style="font-size: 12pt;">
+
+(Muschelli, et al. &quot;Reduction of motion-related artifacts in resting state fMRI using aCompCor.&quot; Neuroimage 96 (2014): 22-35.)
+
+</p></li>
 </ul>
+
+<p><img src="figure/muschelli_wordcloud.png"  style="width:100%;  display: block; margin: auto;"></p>
 
 <img src="figure/bloomberg.logo.large.vertical.blue.png"  style="width:100%;  display: block; margin: auto;"></div>
 
@@ -152,6 +166,7 @@
 <li>WhiteStripe</li>
 <li>oasis</li>
 <li>SuBLIME</li>
+<li>googleCite</li>
 </ul></div></div>
 
 </article></slide><slide class=''><hgroup><h2>PItcHPERFECT: Overall Goal</h2></hgroup><article  id="pitchperfect-overall-goal">
@@ -391,30 +406,26 @@ Result: <img src="figure/Thresh_Image.png" style="width:100%;  display: block; m
 
 <p><img src="figure/moments.png" style="width:60%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-</article></slide><slide class=''><hgroup><h2>Local Moment Information: Higher Moments</h2></hgroup><article  id="local-moment-information-higher-moments-1">
-
-<div class="columns-2" style="font-size: 12px;">
-<div>
-\[
-\begin{align}
-\text{SD}(v) &amp;= \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 } \\
-\text{Skew}(v) &amp;= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^3 } {\left[ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)- \bar{x}(v))^2\right]^{3/2}} \\
-\text{Kurtosis}(v) &amp;= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2} 
-\end{align}
-\]</div>
-
-<div>
-<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment2.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment3.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment4.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"></div></div>
-
-</article></slide><slide class=''><hgroup><h2>Standardized-to-template Intensity</h2></hgroup><article  id="standardized-to-template-intensity">
+</article></slide><slide class=''><hgroup><h2>Population Voxel-wise Mean/SD Image</h2></hgroup><article  id="population-voxel-wise-meansd-image">
 
 <p>From \(72\) CT images from (Gillebert, Humphreys, and Mantini, 2014), we created a voxel-wise mean image \(M\) and voxel-wise standard deviation \(S\) image, after registering to a CT template (Rorden, Bonilha, Fridriksson, et al., 2012).</p>
 
 <p><img src="figure/Z_template.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-<p>We created a standardized voxel intensity with respect to the template (\(z_{i,\text{template}}\)) using the following equation: \[
+</article></slide><slide class=''><hgroup><h2>Standardized-to-template Intensity</h2></hgroup><article  id="standardized-to-template-intensity">
+
+We created a standardized voxel intensity with respect to the template (\(z_{i,\text{template}}\)) using the following equation:
+
+<div id="wrap">
+<div id="left_col2">
+<p><br> <br></p>
+
+\[
 z_{i,\text{template}}(v) = \frac{x_{i}(v) - M(v)}{S(v)}
-\]</p>
+\]</div>
+
+<div id="right_col2">
+<img src="figure/Z_image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div></div>
 
 </article></slide><slide class=''><hgroup><h2>Global Head Information: Smoothed Images</h2></hgroup><article  id="global-head-information-smoothed-images">
 
@@ -562,15 +573,15 @@ TP
 
 </article></slide><slide class=''><hgroup><h2><img src="figure/Modeling_Training_Dice_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section">
 
-</article></slide><slide class=''><hgroup><h2>Patient with High Dice Overlap: Manual Segmentation</h2></hgroup><article  id="patient-with-high-dice-overlap-manual-segmentation">
+</article></slide><slide class=''><hgroup><h2>Patient with High Dice: Manual Segmentation</h2></hgroup><article  id="patient-with-high-dice-manual-segmentation">
 
 <p><img src="figure/SS_Image_PrePredict_ROI.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-</article></slide><slide class=''><hgroup><h2>Patient with High Dice Overlap:Automatic Segmentation</h2></hgroup><article  id="patient-with-high-dice-overlapautomatic-segmentation">
+</article></slide><slide class=''><hgroup><h2>Patient with High Dice: Automatic Segmentation</h2></hgroup><article  id="patient-with-high-dice-automatic-segmentation">
 
 <p><img src="figure/SS_Image_PrePredict_Auto.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-</article></slide><slide class=''><hgroup><h2>Patient with High Dice Overlap: DSI = 0.90</h2></hgroup><article  id="patient-with-high-dice-overlap-dsi-0.90">
+</article></slide><slide class=''><hgroup><h2>Patient with High Dice: DSI = 0.90</h2></hgroup><article  id="patient-with-high-dice-dsi-0.90">
 
 <p><img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
@@ -584,15 +595,22 @@ TP
 
 </article></slide><slide class=''><hgroup><h2>Conclusions</h2></hgroup><article  id="conclusions">
 
+<ul>
+<li>Large ICH can be segmented using CT</li>
+<li>Simple methods can be used for voxel-wise segmentation</li>
+<li>A small training set can be used</li>
+<li>Feature selection is important</li>
+<li>All the analysis can be done in R</li>
+</ul>
+
 </article></slide><slide class=''><hgroup><h2>Other Projects</h2></hgroup><article  id="nextsteps">
 
-<div class="columns-2">
 <ul>
-<li>Segmentation of Gadolinium-Enhancing Lesions in Patients with MS on MRI <br/></li>
-<li>Segmentation of Ischemic Stroke Lesions (ISLES MICCAI Grand Challenge) </br></li>
-<li>Association of Longitudinal Intracerebral Hemorrhage Location and Functional Outcomes</li>
+<li>Segmentation of Gadolinium-Enhancing Lesions in Patients with MS on MRI (T1w, T2w, FLAIR, PD) <br></li>
+<li>Segmentation of Ischemic Stroke Lesions (ISLES MICCAI Grand Challenge) (T1w, T2w, FLAIR, DWI) <br></li>
+<li>Association of Longitudinal Intracerebral Hemorrhage Location and Functional Outcomes <br></li>
 <li>Visualization of 3D and 4D Images</li>
-</ul></div>
+</ul>
 
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Thank You</h2></hgroup><article  id="thank-you">
 

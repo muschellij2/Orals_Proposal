@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.4)  16 SEP 2015 22:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.4)  16 SEP 2015 22:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,25 +513,35 @@ File: figure/SD_Slice.png Graphic file (type png)
 Package pdftex.def Info: figure/SD_Slice.png used on input line 16.
 (pdftex.def)             Requested size: 144.54294pt x 144.54pt.
 
-[1
+<figure/161-413_20110710_1619_CT_2_HEAD_Head_template_zscore.png, id=4, 4215.75
+pt x 4215.75pt>
+File: figure/161-413_20110710_1619_CT_2_HEAD_Head_template_zscore.png Graphic f
+ile (type png)
+
+<use figure/161-413_20110710_1619_CT_2_HEAD_Head_template_zscore.png>
+Package pdftex.def Info: figure/161-413_20110710_1619_CT_2_HEAD_Head_template_z
+score.png used on input line 16.
+(pdftex.def)             Requested size: 144.47862pt x 144.54pt.
+ [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figur
-e/SS_Slice.png> <./figure/Mean_Slice.png> <./figure/SD_Slice.png>]
-(./Z_image.aux) ) 
+e/SS_Slice.png> <./figure/Mean_Slice.png> <./figure/SD_Slice.png> <./figure/161
+-413_20110710_1619_CT_2_HEAD_Head_template_zscore.png>] (./Z_image.aux) ) 
 Here is how much of TeX's memory you used:
- 3092 strings out of 493109
- 41015 string characters out of 6135005
- 105840 words of memory out of 5000000
- 6510 multiletter control sequences out of 15000+600000
+ 3097 strings out of 493109
+ 41342 string characters out of 6135005
+ 106840 words of memory out of 5000000
+ 6514 multiletter control sequences out of 15000+600000
  5339 words of font info for 22 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,24p,292b,171s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb>
-Output written on Z_image.pdf (1 page, 396854 bytes).
+ 38i,6n,24p,503b,178s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Z_image.pdf (1 page, 681363 bytes).
 PDF statistics:
- 18 PDF objects out of 1000 (max. 8388607)
- 7 compressed objects within 1 object stream
+ 25 PDF objects out of 1000 (max. 8388607)
+ 11 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -48,3 +48,13 @@ table.rmdtable tr, table.rmdtable td {
    float:right;
    width:35%;
 }
+
+
+#left_col2 {
+   float:left;
+   width:35%;
+}
+#right_col2 {
+   float:right;
+   width:60%;
+}
