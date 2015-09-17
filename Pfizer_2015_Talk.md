@@ -1,11 +1,15 @@
 # PItcHPERFECT: Primary Intracerebral Hemorrhage Prediction Employing Regression and Features Extracted from CT
 John Muschelli, in collaboration with Elizabeth Sweeney, Daniel Hanley, and Ciprian Crainiceanu  
 September 17, 2015  
-  
+
+
+
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
 </script>
   
+
 
 
 
@@ -23,23 +27,39 @@ September 17, 2015
     - CT Imaging Analysis - 4 years
   - fMRI lab - 2 years
 
-<img src="figure/bloomberg.logo.large.vertical.blue.pdf"  style="width:100%;  display: block; margin: auto;">
+<img src="figure/bloomberg.logo.large.vertical.blue.png"  style="width:100%;  display: block; margin: auto;">
 </div>
 
 ## Writing Reproducible Software and Analyses
 
-All analyses/figures/slides were written in [`R`](https://cran.r-project.org/).
+All analyses/figures/slides were written in [`R`](https://cran.r-project.org/). Authored R Packages:
 
-R Packages:
+<div id="wrap">
+<div id="left_col">
 
 - fslr <p style='font-size: 12pt;'>(Muschelli, John, et al. "fslr: Connecting the FSL Software with R." R JOURNAL 7.1 (2015): 163-175.)</p>
-- brainR <p style='font-size: 12pt;'>(Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. "brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data." R JOURNAL 6.1 (2014): -48.)</p>
-- WhiteStripe
+- brainR <p style='font-size: 12pt;'>(Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. "brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data." R JOURNAL 6.1 (2014): 42-48.)</p>
 - drammsr
 - extrantsr
 - dcm2niir
 - matlabr
 - spm12r
+
+
+</div>
+<div id="right_col">
+
+- cttools
+- itksnapr
+- papayar
+- WhiteStripe
+- oasis
+- SuBLIME
+
+</div>
+</div>
+
+
 
 ## PItcHPERFECT: Overall Goal 
 
@@ -48,7 +68,7 @@ R Packages:
 Want to go from this
 <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-To This:
+To this:
 <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 </div>
 
@@ -56,9 +76,9 @@ To This:
 ## What is Intracranial/Intracerebral hemorrhage?
 
 <div class="columns-2" style='font-size: 28pt;'>
-  - When a blood vessel ruptures into 
-+ tissue: intracerebral hemorrhage (ICH)
-+ ventricles: intraventricular hemorrhage (IVH)
+  - When a blood vessel ruptures into:
+    + Tissue ⇒ intracerebral hemorrhage (ICH)
+    + Ventricles ⇒ intraventricular hemorrhage (IVH)
 - ≈ 13% of strokes
 
 ![](figure/stroke_hem_web.jpg)
@@ -72,7 +92,8 @@ To This:
 * Intracerebral (bleeds mainly in tissue, <strong>ICH</strong>) or Intraventricular (bleeds into ventricles, <strong>IVH</strong>) Hemorrhage trials
 
 * Minimally Invasive Surgery plus rt-PA for ICH Evacuation (<strong>MISTIE</strong>) 
- - multi-center, multi-national Phase II clinical trial
+
+  - Multi-center, multi-national Phase II clinical trial
 
 <img src="figure/MISTIE3-LOGO.png" style="width:200px; height:100px; display: block; margin: auto;" alt="MISTIE LOGO">
 
@@ -81,22 +102,10 @@ To This:
 
 
 
-## Larger ICH Volume ⇒ Worse Outcome
+# Larger ICH Volume ⇒ Worse Outcome
 
 
-<br>
-<div style="font-size: 10pt; color:white;" id = 'botval-content'>
-<br>
-J. P. Broderick, T. G. Brott, J. E. Duldner, et al. **"Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality."** In: _Stroke_ 24.7 (1993), pp. 987-993.
 
-S. Davis, J. Broderick, M. Hennerici, et al. **"Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage"**. In: _Neurology_ 66.8 (2006), pp. 1175-1181.
-
-L. C. Jordan, J. T. Kleinman and A. E. Hillis. **"Intracerebral hemorrhage volume predicts poor neurologic outcome in children"**. In:
-_Stroke_ 40.5 (2009), pp. 1666-1671.
-
-S. Tuhrim, D. R. Horowitz, M. Sacher, et al. **"Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage"**. In: _Critical care medicine_ 27.3 (1999),
-pp. 617-621.
-</div>
 
 ## Measure ICH using Computed Tomography (CT)
 <div class="notes">
@@ -119,8 +128,9 @@ x-ray goes around object and detector the other side of the object determines ho
 <div class="columns-2">
 <img src="figure/Zoom_No_ICH.png"  style="width:100%;  display: block; margin: auto;">
 <br>
-<img src="figure/movie_final.gif" style="width:100%;  inline; display: block; margin: auto;">
+<img src="figure/movie_final.gif" style="width:80%;  inline; display: block; margin: auto;">
 
+<p style='font-size: 10pt;'>Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. "brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data." R JOURNAL 6.1 (2014): 42-48.</p>
 </div>
 
 
@@ -139,7 +149,7 @@ An attenuation coefficient characterizes how easily the X-ray beam penetrated th
 $$
 HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
 $$
-where $\mu$ is the linear attenuation coefficient and $v$ denotes voxel.
+  - $\mu$ is the linear attenuation coefficient and $v$ denotes voxel.
 * $\mu_{\text{water}}$ and $\mu_{\text{air}}$ are calibrated from each scanner.
 </div>
 
@@ -201,22 +211,24 @@ Standard HU Ranges:
 * Hard to use for enrollment criteria (adaptive randomization)
 
 
-## Subject Data used: 112 scans (1 per patient)
-<div style="margin-left:500px;font-size: 30pt;">
-- Large ICH areas
-- Small Intraventricular Hemorrhages (IVH)
-  - 
-</div>
+## Subject Data used: 111 scans (1 per patient)
+<div class="columns-2" style='font-size: 22pt;'>
 
-<div style="float:left;width:500px;">
-
+<div>
 
 |                 &nbsp;                  |   Overall   |
 |:---------------------------------------:|:-----------:|
 |           **Age (Mean (SD))**           | 60.7 (11.2) |
-|          **Gender = Male (%)**          |  77 (68.8)  |
+|            **Male (N (%))**             | 77 (68.8%)  |
 |  **Diagnostic ICH Volume (Mean (SD))**  | 37.7 (20.2) |
 |  **Diagnostic IVH Volume (Mean (SD))**  |  3.2 (6.3)  |
+</div>
+<div>
+
+- Large ICH areas
+- Small Intraventricular Hemorrhages (IVH)
+</div>
+
 </div>
 
 
@@ -228,7 +240,7 @@ Muschelli, John, et al. "Validated automatic brain extraction of head CT images.
 Want to go from this
 <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-To This:
+To this:
 <img src="figure/SS_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 </div>
 
@@ -272,20 +284,31 @@ Result (Skull Stripped Image):
 # Imaging Predictors
 
 
-## Local Moment Information
-For each voxel,  neighborhood $N(v)$, of all adjacent neighboring voxels in $3$ dimensions.  Let $x_k(v)$ denote the voxel intensity in HU for voxel neighbor $k$, where $k = 1, \dots, 26$. 
-Local mean: 
+## Local Moment Information: Neighborhoods
+
+<div class="columns-2">
+<img src="figure/centered_voxel.png"  style="width:100%;  display: block; margin: auto;">
+<br>
+<img src="figure/voxel_figure.gif" loop=infinite style="width:100%;  inline; display: block; margin: auto;">
+
+## Local Moment Information: Mean
+
+For each voxel,  neighborhood $N(v)$, of all adjacent neighboring voxels in $3$ dimensions.  Let $x_k(v)$ denote the voxel intensity in HU for voxel neighbor $k$, where $k = 1, \dots, 27$. 
 $$
 \begin{equation}
 \bar{x}(v) = \frac{1}{N(v)} \sum_{k \in N(v)} x_k(v) \label{eq:mean}
 \end{equation}
 $$
-<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment1.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment1.png" style="width:30%;  display: block; margin: auto;" alt="MISTIE LOGO">
+
+## Local Moment Information: Higher Moments
+<img src="figure/moments.png" style="width:60%;  display: block; margin: auto;" alt="MISTIE LOGO">
 
 ## Local Moment Information: Higher Moments
 
 <div class="columns-2"  style='font-size: 12px;'>
 
+<div>
 $$
 \begin{align}
 \text{SD}(v) &= \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 } \\
@@ -293,18 +316,25 @@ $$
 \text{Kurtosis}(v) &= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2} 
 \end{align}
 $$
+</div>
+<div>
 
-<br>
 <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment2.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
 <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment3.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
 <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment4.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO">
+</div>
 </div>
 
 
 
 
 ## Standardized-to-template Intensity
-From $72$ CT images from (Gillebert, Humphreys, and Mantini, 2014), we created a voxel-wise mean image $M$ and voxel-wise standard deviation $S$ image, after registering to a CT template (Rorden, Bonilha, Fridriksson, et al., 2012).   We created a standardized voxel intensity with respect to the template ($z_{i,\text{template}}$) using the following equation:
+From $72$ CT images from (Gillebert, Humphreys, and Mantini, 2014), we created a voxel-wise mean image $M$ and voxel-wise standard deviation $S$ image, after registering to a CT template (Rorden, Bonilha, Fridriksson, et al., 2012).  
+
+<img src="figure/Z_template.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO">
+
+
+We created a standardized voxel intensity with respect to the template ($z_{i,\text{template}}$) using the following equation:
 $$
 z_{i,\text{template}}(v) = \frac{x_{i}(v) - M(v)}{S(v)}
 $$
@@ -315,11 +345,9 @@ Smoothing the original image using large Gaussian kernels ($\sigma = 10mm^3, 20m
 
 <div class="columns-2">
 $\sigma = 10$
-
 <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth10.png" style="width:100%; display: block; margin: auto;" alt="MISTIE LOGO">
 
 $\sigma = 20$
-
 <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth20.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO">
 </div>
 
@@ -377,40 +405,35 @@ $$
 
 </div>
 
+## <img src="figure/Modeling_Training_Dice_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-## Get ICH Mask from Manual Segmentation
-  
-![inline fill](figure/Figure_DSI_Quantile_000.png)
+## Patient with High Dice Overlap: Manual Segmentation
 
-</div>
-
-
-## Test case: Manual Segmentation
- 
 <img src="figure/SS_Image_PrePredict_ROI.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-
-## Example Output: Automatic Segmentation
+## Patient with High Dice Overlap:Automatic Segmentation
  
 <img src="figure/SS_Image_PrePredict_Auto.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
-## Prediction Comparison: DSI: 0.90
 
-
-<img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
-
-
-## <img src="figure/Modeling_Training_Dice_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO">
-
-## Prediction Comparison: DSI: 0.90
+## Patient with High Dice Overlap: DSI = 0.90
 
 
 
 <img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">
 
+## Patient with Median Dice Overlap 
+  
+<img src="figure/Figure_DSI_Quantile_050.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO">  
 
 
-# Thanks
+
+
+## Comparison of Estimated Volume 
+<img src="figure/Volume_Plot.png" style="width:100%; display: block; margin: auto;" alt="Vol Plot">
+
+## Conclusions
+
 
 
 ## Other Projects {#nextsteps}
@@ -424,17 +447,24 @@ $$
 - Association of Longitudinal Intracerebral Hemorrhage Location and Functional Outcomes
 - Visualization of 3D and 4D Images
 
+</div>
+
+# Thank You
 
 
 
-## Statistics Philosophy and Goals
-
-1. "How does that compare to the mean?" - Ciprian Crainiceanu
-
-2. The goal is to solve problems.  Statistics is one tool.  Given all available options, choose the simplest and/or fastest solution.
-
-3. Never trust the data is clean
-
-4. You never do anything once. 
 
 
+## Larger ICH ⇒ Worse Outcome
+<div style="font-size: 14pt; color:black;">
+<br>
+J. P. Broderick, T. G. Brott, J. E. Duldner, et al. **"Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality."** In: _Stroke_ 24.7 (1993), pp. 987-993.
+
+S. Davis, J. Broderick, M. Hennerici, et al. **"Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage"**. In: _Neurology_ 66.8 (2006), pp. 1175-1181.
+
+L. C. Jordan, J. T. Kleinman and A. E. Hillis. **"Intracerebral hemorrhage volume predicts poor neurologic outcome in children"**. In:
+_Stroke_ 40.5 (2009), pp. 1666-1671.
+
+S. Tuhrim, D. R. Horowitz, M. Sacher, et al. **"Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage"**. In: _Critical care medicine_ 27.3 (1999),
+pp. 617-621.
+</div>

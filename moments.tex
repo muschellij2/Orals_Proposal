@@ -1,0 +1,20 @@
+\documentclass[32pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[landscape]{geometry}
+\author{John Muschelli}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+
+\begin{document}
+\pagestyle{empty}
+\begin{tabular}{m{5in}m{6in}}
+\Scale[2]{\text{SD}(v) = \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 }} & \includegraphics[height = 2in, keepaspectratio=true]{figure/{161-413_20110710_1619_CT_2_HEAD_Head_moment2}.png}\\
+\Scale[2]{\text{Skew}(v) = \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^3 } {\left[ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)- \bar{x}(v))^2\right]^{3/2}}} & \includegraphics[height = 2in, keepaspectratio=true]{figure/{161-413_20110710_1619_CT_2_HEAD_Head_moment3}.png}\\
+\Scale[2]{\text{Kurtosis}(v) = \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2}} & \includegraphics[height = 2in, keepaspectratio=true]{figure/{161-413_20110710_1619_CT_2_HEAD_Head_moment4}.png}
+
+\end{tabular}
+\end{document}

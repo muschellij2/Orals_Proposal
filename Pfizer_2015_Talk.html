@@ -114,14 +114,14 @@
 <li>fMRI lab - 2 years</li>
 </ul>
 
-<img src="figure/bloomberg.logo.large.vertical.blue.pdf"  style="width:100%;  display: block; margin: auto;"></div>
+<img src="figure/bloomberg.logo.large.vertical.blue.png"  style="width:100%;  display: block; margin: auto;"></div>
 
 </article></slide><slide class=''><hgroup><h2>Writing Reproducible Software and Analyses</h2></hgroup><article  id="writing-reproducible-software-and-analyses">
 
-<p>All analyses/figures/slides were written in <a href='https://cran.r-project.org/' title=''><code>R</code></a>.</p>
+<p>All analyses/figures/slides were written in <a href='https://cran.r-project.org/' title=''><code>R</code></a>. Authored R Packages:</p>
 
-<p>R Packages:</p>
-
+<div id="wrap">
+<div id="left_col">
 <ul>
 <li>fslr
 
@@ -134,31 +134,43 @@
 
 <p style="font-size: 12pt;">
 
-(Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. &quot;brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data.&quot; R JOURNAL 6.1 (2014): -48.)
+(Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. &quot;brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data.&quot; R JOURNAL 6.1 (2014): 42-48.)
 
 </p></li>
-<li>WhiteStripe</li>
 <li>drammsr</li>
 <li>extrantsr</li>
 <li>dcm2niir</li>
 <li>matlabr</li>
 <li>spm12r</li>
-</ul>
+</ul></div>
+
+<div id="right_col">
+<ul>
+<li>cttools</li>
+<li>itksnapr</li>
+<li>papayar</li>
+<li>WhiteStripe</li>
+<li>oasis</li>
+<li>SuBLIME</li>
+</ul></div></div>
 
 </article></slide><slide class=''><hgroup><h2>PItcHPERFECT: Overall Goal</h2></hgroup><article  id="pitchperfect-overall-goal">
 
 <div class="columns-2">
 <p>Want to go from this <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-To This: <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
+To this: <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
 
 </article></slide><slide class=''><hgroup><h2>What is Intracranial/Intracerebral hemorrhage?</h2></hgroup><article  id="what-is-intracranialintracerebral-hemorrhage">
 
 <div class="columns-2" style="font-size: 28pt;">
 <ul>
-<li>When a blood vessel ruptures into</li>
-<li>tissue: intracerebral hemorrhage (ICH)</li>
-<li>ventricles: intraventricular hemorrhage (IVH)</li>
+<li>When a blood vessel ruptures into:
+
+<ul>
+<li>Tissue ⇒ intracerebral hemorrhage (ICH)</li>
+<li>Ventricles ⇒ intraventricular hemorrhage (IVH)</li>
+</ul></li>
 <li>≈ 13% of strokes</li>
 </ul>
 
@@ -170,8 +182,8 @@ To This: <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  
 
 <ul>
 <li><p>Intracerebral (bleeds mainly in tissue, <strong>ICH</strong>) or Intraventricular (bleeds into ventricles, <strong>IVH</strong>) Hemorrhage trials</p></li>
-<li>Minimally Invasive Surgery plus rt-PA for ICH Evacuation (<strong>MISTIE</strong>)</li>
-<li><p>multi-center, multi-national Phase II clinical trial</p></li>
+<li><p>Minimally Invasive Surgery plus rt-PA for ICH Evacuation (<strong>MISTIE</strong>)</p></li>
+<li><p>Multi-center, multi-national Phase II clinical trial</p></li>
 </ul>
 
 <p><img src="figure/MISTIE3-LOGO.png" style="width:200px; height:100px; display: block; margin: auto;" alt="MISTIE LOGO"></p>
@@ -180,18 +192,7 @@ To This: <img src="figure/SS_Image_PrePredict_ROI_Mask.png" style="width:100%;  
 <li><a href='http://braininjuryoutcomes.com/mistie-about' title=''>http://braininjuryoutcomes.com/mistie-about</a></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Larger ICH Volume ⇒ Worse Outcome</h2></hgroup><article  id="larger-ich-volume-worse-outcome">
-
-<br>
-
-<div id="botval-content" style="font-size: 10pt; color:white;">
-<p><br> J. P. Broderick, T. G. Brott, J. E. Duldner, et al. <strong>&quot;Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality.&quot;</strong> In: <em>Stroke</em> 24.7 (1993), pp. 987-993.</p>
-
-<p>S. Davis, J. Broderick, M. Hennerici, et al. <strong>&quot;Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage&quot;</strong>. In: <em>Neurology</em> 66.8 (2006), pp. 1175-1181.</p>
-
-<p>L. C. Jordan, J. T. Kleinman and A. E. Hillis. <strong>&quot;Intracerebral hemorrhage volume predicts poor neurologic outcome in children&quot;</strong>. In: <em>Stroke</em> 40.5 (2009), pp. 1666-1671.</p>
-
-S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage&quot;</strong>. In: <em>Critical care medicine</em> 27.3 (1999), pp. 617-621.</div>
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Larger ICH Volume ⇒ Worse Outcome</h2></hgroup><article  id="larger-ich-volume-worse-outcome">
 
 </article></slide><slide class=''><hgroup><h2>Measure ICH using Computed Tomography (CT)</h2></hgroup><article  id="measure-ich-using-computed-tomography-ct">
 
@@ -206,7 +207,13 @@ S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular
 </article></slide><slide class=''><hgroup><h2>Image Representation: voxels (3D pixels)</h2></hgroup><article  id="image-representation-voxels-3d-pixels">
 
 <div class="columns-2">
-<p><img src="figure/Zoom_No_ICH.png"  style="width:100%;  display: block; margin: auto;"> <br> <img src="figure/movie_final.gif" style="width:100%;  inline; display: block; margin: auto;"></p></div>
+<p><img src="figure/Zoom_No_ICH.png"  style="width:100%;  display: block; margin: auto;"> <br> <img src="figure/movie_final.gif" style="width:80%;  inline; display: block; margin: auto;"></p>
+
+<p style="font-size: 10pt;">
+
+Muschelli, John, Elizabeth Sweeney, and Ciprian Crainiceanu. &quot;brainR: Interactive 3 and 4D Images of High Resolution Neuroimage Data.&quot; R JOURNAL 6.1 (2014): 42-48.
+
+</p></div>
 
 </article></slide><slide class=''><hgroup><h2>CT scan Characteristics</h2></hgroup><article  id="ct-scan-characteristics">
 
@@ -221,7 +228,8 @@ S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular
 <ul>
 <li>Voxel intensities are in Hounsfield Units (HU), which are &quot;standardized&quot; \[
 HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_{\text{air}}}
-\] where \(\mu\) is the linear attenuation coefficient and \(v\) denotes voxel.</li>
+\]</li>
+<li>\(\mu\) is the linear attenuation coefficient and \(v\) denotes voxel.</li>
 <li>\(\mu_{\text{water}}\) and \(\mu_{\text{air}}\) are calibrated from each scanner.</li>
 </ul></div>
 
@@ -304,16 +312,10 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 <li>Hard to use for enrollment criteria (adaptive randomization)</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Subject Data used: 112 scans (1 per patient)</h2></hgroup><article  id="subject-data-used-112-scans-1-per-patient">
+</article></slide><slide class=''><hgroup><h2>Subject Data used: 111 scans (1 per patient)</h2></hgroup><article  id="subject-data-used-111-scans-1-per-patient">
 
-<div style="margin-left:500px;font-size: 30pt;">
-<ul>
-<li>Large ICH areas</li>
-<li>Small Intraventricular Hemorrhages (IVH)</li>
-<li></li>
-</ul></div>
-
-<div style="float:left;width:500px;">
+<div class="columns-2" style="font-size: 22pt;">
+<div>
 <table class = 'rmdtable'>
 <tr class="header">
 <th align="center"> </th>
@@ -324,8 +326,8 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 <td align="center">60.7 (11.2)</td>
 </tr>
 <tr class="even">
-<td align="center"><strong>Gender = Male (%)</strong></td>
-<td align="center">77 (68.8)</td>
+<td align="center"><strong>Male (N (%))</strong></td>
+<td align="center">77 (68.8%)</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>Diagnostic ICH Volume (Mean (SD))</strong></td>
@@ -337,6 +339,12 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 </tr>
 </table></div>
 
+<div>
+<ul>
+<li>Large ICH areas</li>
+<li>Small Intraventricular Hemorrhages (IVH)</li>
+</ul></div></div>
+
 </article></slide><slide class=''><hgroup><h2>Step 1: CT Skull Stripping</h2></hgroup><article  id="step-1-ct-skull-stripping">
 
 <p>Muschelli, John, et al. &quot;Validated automatic brain extraction of head CT images.&quot; NeuroImage 114 (2015): 379-385.</p>
@@ -344,7 +352,7 @@ HU(v) = 1000 \times \frac{\mu(v) - \mu_{\text{water}}}{ \mu_{\text{water}}- \mu_
 <div class="columns-2">
 <p>Want to go from this <img src="figure/Original_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-To This: <img src="figure/SS_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
+To this: <img src="figure/SS_Image.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
 
 </article></slide><slide class=''><hgroup><h2>CT Skull Stripping: Step 1 - Threshold</h2></hgroup><article  id="ct-skull-stripping-step-1---threshold">
 
@@ -365,30 +373,46 @@ Result: <img src="figure/Thresh_Image.png" style="width:100%;  display: block; m
 
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Imaging Predictors</h2></hgroup><article  id="imaging-predictors">
 
-</article></slide><slide class=''><hgroup><h2>Local Moment Information</h2></hgroup><article  id="local-moment-information">
+</article></slide><slide class=''><hgroup><h2>Local Moment Information: Neighborhoods</h2></hgroup><article  id="local-moment-information-neighborhoods">
 
-<p>For each voxel, neighborhood \(N(v)\), of all adjacent neighboring voxels in \(3\) dimensions. Let \(x_k(v)\) denote the voxel intensity in HU for voxel neighbor \(k\), where \(k = 1, \dots, 26\). Local mean: \[
+<div class="columns-2">
+
+<p><img src="figure/centered_voxel.png"  style="width:100%;  display: block; margin: auto;"> <br> <img src="figure/voxel_figure.gif" loop=infinite style="width:100%;  inline; display: block; margin: auto;"></p>
+
+</article></slide><slide class=''><hgroup><h2>Local Moment Information: Mean</h2></hgroup><article  id="local-moment-information-mean">
+
+<p>For each voxel, neighborhood \(N(v)\), of all adjacent neighboring voxels in \(3\) dimensions. Let \(x_k(v)\) denote the voxel intensity in HU for voxel neighbor \(k\), where \(k = 1, \dots, 27\). \[
 \begin{equation}
 \bar{x}(v) = \frac{1}{N(v)} \sum_{k \in N(v)} x_k(v) \label{eq:mean}
 \end{equation}
-\] <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment1.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+\] <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment1.png" style="width:30%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
 </article></slide><slide class=''><hgroup><h2>Local Moment Information: Higher Moments</h2></hgroup><article  id="local-moment-information-higher-moments">
 
+<p><img src="figure/moments.png" style="width:60%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+</article></slide><slide class=''><hgroup><h2>Local Moment Information: Higher Moments</h2></hgroup><article  id="local-moment-information-higher-moments-1">
+
 <div class="columns-2" style="font-size: 12px;">
-<p>\[
+<div>
+\[
 \begin{align}
 \text{SD}(v) &amp;= \sqrt{ \frac{1}{N(v)} \sum_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2 } \\
 \text{Skew}(v) &amp;= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^3 } {\left[ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)- \bar{x}(v))^2\right]^{3/2}} \\
 \text{Kurtosis}(v) &amp;= \frac{ \frac{1}{N(v)} \sum\limits_{k \in N(v)} (x_k(v)-\bar{x}(v) )^4 }{ \left( \frac{1}{N(v)} \sum\limits_{k \in N(v)} \left(x_k(v) - \bar{x}(v)\right)^2\right)^2} 
 \end{align}
-\]</p>
+\]</div>
 
-<br> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment2.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment3.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment4.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
+<div>
+<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment2.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment3.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"> <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_moment4.png" style="width:32%;  display: block; margin: auto;" alt="MISTIE LOGO"></div></div>
 
 </article></slide><slide class=''><hgroup><h2>Standardized-to-template Intensity</h2></hgroup><article  id="standardized-to-template-intensity">
 
-<p>From \(72\) CT images from (Gillebert, Humphreys, and Mantini, 2014), we created a voxel-wise mean image \(M\) and voxel-wise standard deviation \(S\) image, after registering to a CT template (Rorden, Bonilha, Fridriksson, et al., 2012). We created a standardized voxel intensity with respect to the template (\(z_{i,\text{template}}\)) using the following equation: \[
+<p>From \(72\) CT images from (Gillebert, Humphreys, and Mantini, 2014), we created a voxel-wise mean image \(M\) and voxel-wise standard deviation \(S\) image, after registering to a CT template (Rorden, Bonilha, Fridriksson, et al., 2012).</p>
+
+<p><img src="figure/Z_template.png" style="width:50%;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+
+<p>We created a standardized voxel intensity with respect to the template (\(z_{i,\text{template}}\)) using the following equation: \[
 z_{i,\text{template}}(v) = \frac{x_{i}(v) - M(v)}{S(v)}
 \]</p>
 
@@ -397,13 +421,9 @@ z_{i,\text{template}}(v) = \frac{x_{i}(v) - M(v)}{S(v)}
 <p>Smoothing the original image using large Gaussian kernels (\(\sigma = 10mm^3, 20mm^3\)) can capture any potential homogeneity throughout the scan.</p>
 
 <div class="columns-2">
-<p>\(\sigma = 10\)</p>
+<p>\(\sigma = 10\) <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth10.png" style="width:100%; display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-<p><img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth10.png" style="width:100%; display: block; margin: auto;" alt="MISTIE LOGO"></p>
-
-<p>\(\sigma = 20\)</p>
-
-<img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth20.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
+\(\sigma = 20\) <img src="figure/161-413_20110710_1619_CT_2_HEAD_Head_smooth20.png" style="width:100%;  display: block; margin: auto;" alt="MISTIE LOGO"></div>
 
 </article></slide><slide class=''><hgroup><h2>Covariates <img src="figure/Covariates2.png" style="width:550px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="covariates">
 
@@ -540,52 +560,52 @@ TP
 <div style="margin-left:48%;">
 <p><img src="figure/Fraction_Figure.png" style="width:400px;height:460px;display: block; margin: auto;"></p></div>
 
-</article></slide><slide class=''><hgroup><h2>Get ICH Mask from Manual Segmentation</h2></hgroup><article  id="get-ich-mask-from-manual-segmentation">
+</article></slide><slide class=''><hgroup><h2><img src="figure/Modeling_Training_Dice_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section">
 
-<img src='figure/Figure_DSI_Quantile_000.png' title=''/>
-
-</div>
-
-</article></slide><slide class=''><hgroup><h2>Test case: Manual Segmentation</h2></hgroup><article  id="test-case-manual-segmentation">
+</article></slide><slide class=''><hgroup><h2>Patient with High Dice Overlap: Manual Segmentation</h2></hgroup><article  id="patient-with-high-dice-overlap-manual-segmentation">
 
 <p><img src="figure/SS_Image_PrePredict_ROI.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-</article></slide><slide class=''><hgroup><h2>Example Output: Automatic Segmentation</h2></hgroup><article  id="example-output-automatic-segmentation">
+</article></slide><slide class=''><hgroup><h2>Patient with High Dice Overlap:Automatic Segmentation</h2></hgroup><article  id="patient-with-high-dice-overlapautomatic-segmentation">
 
 <p><img src="figure/SS_Image_PrePredict_Auto.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-</article></slide><slide class=''><hgroup><h2>Prediction Comparison: DSI: 0.90</h2></hgroup><article  id="prediction-comparison-dsi-0.90">
+</article></slide><slide class=''><hgroup><h2>Patient with High Dice Overlap: DSI = 0.90</h2></hgroup><article  id="patient-with-high-dice-overlap-dsi-0.90">
 
 <p><img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-</article></slide><slide class=''><hgroup><h2><img src="figure/Modeling_Training_Dice_Rigid_zval2_Smooth_Final.png" style="width:600px;  display: block; margin: auto;" alt="MISTIE LOGO"></h2></hgroup><article  id="section">
+</article></slide><slide class=''><hgroup><h2>Patient with Median Dice Overlap</h2></hgroup><article  id="patient-with-median-dice-overlap">
 
-</article></slide><slide class=''><hgroup><h2>Prediction Comparison: DSI: 0.90</h2></hgroup><article  id="prediction-comparison-dsi-0.90-1">
+<p><img src="figure/Figure_DSI_Quantile_050.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
 
-<p><img src="figure/Prediction_Figure.png" style="width:500px;  display: block; margin: auto;" alt="MISTIE LOGO"></p>
+</article></slide><slide class=''><hgroup><h2>Comparison of Estimated Volume</h2></hgroup><article  id="comparison-of-estimated-volume">
 
-</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Thanks</h2></hgroup><article  id="thanks">
+<p><img src="figure/Volume_Plot.png" style="width:100%; display: block; margin: auto;" alt="Vol Plot"></p>
+
+</article></slide><slide class=''><hgroup><h2>Conclusions</h2></hgroup><article  id="conclusions">
 
 </article></slide><slide class=''><hgroup><h2>Other Projects</h2></hgroup><article  id="nextsteps">
 
 <div class="columns-2">
-
-
 <ul>
 <li>Segmentation of Gadolinium-Enhancing Lesions in Patients with MS on MRI <br/></li>
 <li>Segmentation of Ischemic Stroke Lesions (ISLES MICCAI Grand Challenge) </br></li>
 <li>Association of Longitudinal Intracerebral Hemorrhage Location and Functional Outcomes</li>
 <li>Visualization of 3D and 4D Images</li>
-</ul>
+</ul></div>
 
-</article></slide><slide class=''><hgroup><h2>Statistics Philosophy and Goals</h2></hgroup><article  id="statistics-philosophy-and-goals">
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Thank You</h2></hgroup><article  id="thank-you">
 
-<ol>
-<li><p>&quot;How does that compare to the mean?&quot; - Ciprian Crainiceanu</p></li>
-<li><p>The goal is to solve problems. Statistics is one tool. Given all available options, choose the simplest and/or fastest solution.</p></li>
-<li><p>Never trust the data is clean</p></li>
-<li><p>You never do anything once.</p></li>
-</ol>
+</article></slide><slide class=''><hgroup><h2>Larger ICH ⇒ Worse Outcome</h2></hgroup><article  id="larger-ich-worse-outcome">
+
+<div style="font-size: 14pt; color:black;">
+<p><br> J. P. Broderick, T. G. Brott, J. E. Duldner, et al. <strong>&quot;Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality.&quot;</strong> In: <em>Stroke</em> 24.7 (1993), pp. 987-993.</p>
+
+<p>S. Davis, J. Broderick, M. Hennerici, et al. <strong>&quot;Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage&quot;</strong>. In: <em>Neurology</em> 66.8 (2006), pp. 1175-1181.</p>
+
+<p>L. C. Jordan, J. T. Kleinman and A. E. Hillis. <strong>&quot;Intracerebral hemorrhage volume predicts poor neurologic outcome in children&quot;</strong>. In: <em>Stroke</em> 40.5 (2009), pp. 1666-1671.</p>
+
+S. Tuhrim, D. R. Horowitz, M. Sacher, et al. <strong>&quot;Volume of ventricular blood is an important determinant of outcome in supratentorial intracerebral hemorrhage&quot;</strong>. In: <em>Critical care medicine</em> 27.3 (1999), pp. 617-621.</div>
 
 <div class="references">
 </div></article></slide>
